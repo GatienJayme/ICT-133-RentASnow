@@ -1,4 +1,9 @@
 <?php
+/*  Program: Rent a snow
+    Author: Gatien Jayme
+    Date: 09.01.2020
+    Version: 1.0
+*/
 ob_start();
 $title = "RentASnow - Accueil";
 ?>
