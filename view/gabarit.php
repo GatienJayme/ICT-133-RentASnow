@@ -39,12 +39,6 @@
     <div class="transparent-bg"
          style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <button type="button" class="col-md-3">se connecter</button>
-        </div>
-    </div>
-
     <div class="divPanel notop nobottom">
         <div class="row-fluid">
             <div class="row">
@@ -54,18 +48,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="navbar">
+                <nav class="navbar">
                     <ul class="nav nav-pills">
                         <!-- On commence par afficher les boutons qui s'afficheront, peu importe les événements-->
                         <li><a href="index.php?action=home">Home</a></li>
                         <li><a href="index.php?action=displaySnows">Snows</a></li>
                         <?php if (isset($_SESSION['username'])){?>
-                            <li><a href="index.php?action=disconnect">Déconnexion</a></li>
-                        <?php } else { ?>
                             <li><a href="index.php?action=connect">Connexion</a></li>
+                        <?php } else { ?>
+                            <li><a href="index.php?action=disconnect">Déconnexion</a></li>
                         <?php } ?>
                     </ul>
-                </div>
+                </nav>
             </div>
         </div>
 

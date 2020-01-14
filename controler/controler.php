@@ -14,4 +14,9 @@ function snows()
     $snows = getSnows();
     require_once 'view/snows.php';
 }
+
+function details(){
+    $details = getdetails();
+    require_once 'view/details.php';
+}
 ?>

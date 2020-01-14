@@ -10,7 +10,12 @@ switch ($action) {
     case 'displaySnows':
         snows();
         break;
-
+    case 'detailsnow':
+        details();
+        break;
+    case 'connect':
+        login();
+        break;
     default:
         home();
 }
