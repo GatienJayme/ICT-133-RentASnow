@@ -10,11 +10,19 @@ $title = "RentASnow - Login";
 
     <!-- ________ Login _____________-->
     <div class="span12">
-        <h1>Les Snowboards</h1>
+        <h1>Page de connexion</h1>
         <?php foreach ($logins as $login) { ?>
             <div class="row mt-4">
-                <div class="col-2"><?= $login[''] ?></div>
-                <div class="col-2"><?= $login[''] ?></div>
+                <table>
+                    <tr>
+                        <?= $login ?>
+                        <td><label for="Votre identifiant">Votre identifiant</label></td>
+                        <td><input type="text" name="pseudo"/></td>
+                        <td><label for="mdp"></label>Mot de passe</td>
+                        <td><input type="password" name="mot de passe"/></td>
+                        <td><input type="password" name="confirmation du mot de passe"/></td>
+                    </tr>
+                </table>
             </div>
         <?php } ?>
     </div>

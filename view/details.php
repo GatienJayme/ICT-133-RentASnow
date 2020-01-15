@@ -16,6 +16,7 @@ $title = "RentASnow - Details";
             <br><div class="col-2"><?= $detail['brand']?></div>
             <div class="col-2"><?= $detail['model'] ?></div>
             <div class="col-2"><?= $detail['details']?></div>
+            <div class="col-2"><?= $detail['image']?></div>
         </div>
     <?php } ?>
 </div>

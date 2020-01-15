@@ -19,4 +19,9 @@ function details(){
     $details = getdetails();
     require_once 'view/details.php';
 }
+
+function login() {
+    $login = getlogin();
+    require_once 'view/login.php';
+}
 ?>
