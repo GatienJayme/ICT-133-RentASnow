@@ -1,19 +1,92 @@
 [
   {
-    "brand": "Burton",
-    "image": "model/dataStorage/B101.jpg",
-    "model": "Ride X-treme"
+    "id": 1,
+    "modele": "B101",
+    "marque": "Burton",
+    "bigimage": "B101.jpg",
+    "smallimage": "B101_small.jpg",
+    "dateretour": "",
+    "disponible": true
   },
   {
-    "brand": "Burton",
-    "model": "457"
+    "id": 2,
+    "modele": "B126",
+    "marque": "Free Thinker",
+    "bigimage": "B126.jpg",
+    "smallimage": "B126_small.jpg",
+    "dateretour": "2020-01-09",
+    "disponible": false
   },
   {
-    "brand": "O-sin",
-    "model": "Peak"
+    "id": 3,
+    "modele": "B327",
+    "marque": "Burton",
+    "bigimage": "B327.jpg",
+    "smallimage": "B327_small.jpg",
+    "dateretour": "2020-02-02",
+    "disponible": false
   },
   {
-    "brand": "O-sin",
-    "model": "X-412"
+    "id": 4,
+    "modele": "K067",
+    "marque": "Prior",
+    "bigimage": "K067.jpg",
+    "smallimage": "K067_small.jpg",
+    "dateretour": "2020-01-15",
+    "disponible": false
+  },
+  {
+    "id": 5,
+    "modele": "K266",
+    "marque": "KR",
+    "bigimage": "K266.jpg",
+    "smallimage": "K266_small.jpg",
+    "dateretour": "",
+    "disponible": true
+  },
+  {
+    "id": 6,
+    "modele": "K409",
+    "marque": "KR",
+    "bigimage": "K409.jpg",
+    "smallimage": "K409_small.jpg",
+    "dateretour": "",
+    "disponible": true
+  },
+  {
+    "id": 7,
+    "modele": "N100",
+    "marque": "NSnow",
+    "bigimage": "N100.jpg",
+    "smallimage": "N100_small.jpg",
+    "dateretour": "2020-03-19",
+    "disponible": false
+  },
+  {
+    "id": 8,
+    "modele": "N754",
+    "marque": "NSnow",
+    "bigimage": "N754.jpg",
+    "smallimage": "N754_small.jpg",
+    "dateretour": "2020-02-12",
+    "disponible": false
+  },
+  {
+    "id": 9,
+    "modele": "P067",
+    "marque": "Prior",
+    "bigimage": "P067.jpg",
+    "smallimage": "P067_small.jpg",
+    "dateretour": "2020-04-06",
+    "disponible": false
+  },
+  {
+    "id": 10,
+    "modele": "P165",
+    "marque": "Prior",
+    "bigimage": "P165.jpg",
+    "smallimage": "P165_small.jpg",
+    "dateretour": "",
+    "disponible": true
   }
 ]

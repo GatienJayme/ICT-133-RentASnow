@@ -1,4 +1,8 @@
-﻿<!DOCTYPE HTML>
+﻿<!-- Program: Rent a snow view gabarit
+     Author: Gatien Jayme
+     Date: 16.01.2020
+     Version: 1.0 -->
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">

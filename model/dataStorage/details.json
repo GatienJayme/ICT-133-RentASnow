@@ -1,23 +1,92 @@
 [
   {
-    "brand": "Burton",
-    "image": "B101.jpg",
-    "model": "Ride X-treme",
+    "modele": "B101",
+    "marque": "Burton",
+    "bigimage": "B101.jpg",
+    "smallimage": "B101_small.jpg",
+    "dateretour": "",
+    "disponible": true,
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
-    "brand": "Burton",
-    "model": "457",
+    "modele": "B126",
+    "marque": "Free Thinker",
+    "bigimage": "B126.jpg",
+    "smallimage": "B126_small.jpg",
+    "dateretour": "2020-01-09",
+    "disponible": false,
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
-    "brand": "O-sin",
-    "model": "Peak",
+    "modele": "B327",
+    "marque": "Burton",
+    "bigimage": "B327.jpg",
+    "smallimage": "B327_small.jpg",
+    "dateretour": "2020-02-02",
+    "disponible": false,
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
-    "brand": "O-sin",
-    "model": "X-412",
+    "modele": "K067",
+    "marque": "Prior",
+    "bigimage": "K067.jpg",
+    "smallimage": "K067_small.jpg",
+    "dateretour": "2020-01-15",
+    "disponible": false,
+    "details": "Suberbe planche flexible et belle avec des flammes dessus"
+  },
+  {
+    "modele": "K266",
+    "marque": "KR",
+    "bigimage": "K266.jpg",
+    "smallimage": "K266_small.jpg",
+    "dateretour": "",
+    "disponible": true,
+    "details": "Suberbe planche flexible et belle avec des flammes dessus"
+  },
+  {
+    "modele": "K409",
+    "marque": "KR",
+    "bigimage": "K409.jpg",
+    "smallimage": "K409_small.jpg",
+    "dateretour": "",
+    "disponible": true,
+    "details": "Suberbe planche flexible et belle avec des flammes dessus"
+  },
+  {
+    "modele": "N100",
+    "marque": "NSnow",
+    "bigimage": "N100.jpg",
+    "smallimage": "N100_small.jpg",
+    "dateretour": "2020-03-19",
+    "disponible": false,
+    "details": "Suberbe planche flexible et belle avec des flammes dessus"
+  },
+  {
+    "modele": "N754",
+    "marque": "NSnow",
+    "bigimage": "N754.jpg",
+    "smallimage": "N754_small.jpg",
+    "dateretour": "2020-02-12",
+    "disponible": false,
+    "details": "Suberbe planche flexible et belle avec des flammes dessus"
+  },
+  {
+    "modele": "P067",
+    "marque": "Prior",
+    "bigimage": "P067.jpg",
+    "smallimage": "P067_small.jpg",
+    "dateretour": "2020-04-06",
+    "disponible": false,
+    "details": "Suberbe planche flexible et belle avec des flammes dessus"
+  },
+  {
+    "modele": "P165",
+    "marque": "Prior",
+    "bigimage": "P165.jpg",
+    "smallimage": "P165_small.jpg",
+    "dateretour": "",
+    "disponible": true,
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   }
 ]

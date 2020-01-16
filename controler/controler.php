@@ -1,4 +1,9 @@
 <?php
+/*  Program: Rent a snow controller
+    Author: Gatien Jayme
+    Date: 16.01.2020
+    Version: 1.0
+*/
 require_once 'model/model.php';
 
 // This file contains nothing but functions
