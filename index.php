@@ -18,7 +18,7 @@ switch ($action) {
         snows();
         break;
     case 'detailsnow':
-        details();
+        details($snowid);
         break;
     case 'connect':
         login();
