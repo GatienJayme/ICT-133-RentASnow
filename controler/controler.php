@@ -36,10 +36,13 @@ function connect() {
         $password = $_POST['mdp'];
     }
     if($username=='Gatien' && $password=='1234567') {
-        require_once 'view/home.php';
+        $_SESSION['username'] = $username;
     }
-    else{
-        require_once "view/login.php";
-    }
+require_once 'view/home.php';
+}
+
+function disconnect() {
+    unset($_SESSION['username']);
+    require_once 'view/home.php';
 }
 ?>

@@ -5,13 +5,11 @@
     Version: 1.0
 */
 session_start();
-$_SESSION['username'] = 'GJE';
 
 require "controler/controler.php";
 
 $action = $_GET['action'];
 $snowid = $_GET['id'];
-
 
 switch ($action) {
     case 'displaySnows':
@@ -22,6 +20,9 @@ switch ($action) {
         break;
     case'connect':
         connect();
+        break;
+    case 'logout':
+        disconnect();
         break;
     case 'login':
         login();

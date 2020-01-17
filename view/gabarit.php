@@ -58,9 +58,9 @@
                         <li><a href="index.php?action=home">Home</a></li>
                         <li><a href="index.php?action=displaySnows">Snows</a></li>
                         <?php if (isset($_SESSION['username'])){?>
-                            <li><a href="index.php?action=login">Connexion</a></li>
-                        <?php } else { ?>
                             <li><a href="index.php?action=logout">Déconnexion</a></li>
+                        <?php } else { ?>
+                            <li><a href="index.php?action=login">Connexion</a></li>
                         <?php } ?>
                     </ul>
                 </nav>

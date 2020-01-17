@@ -25,5 +25,5 @@ $title = "RentASnow - Snowboards";
 
 <?php
 $content = ob_get_clean();
-require "gabarit.php";
+require_once "gabarit.php";
 ?>
