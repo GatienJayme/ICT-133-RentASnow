@@ -20,7 +20,10 @@ switch ($action) {
     case 'detailsnow':
         details($snowid);
         break;
-    case 'connect':
+    case'connect':
+        var_dump($_POST);
+        die();
+    case 'login':
         login();
         break;
     default:

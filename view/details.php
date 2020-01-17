@@ -20,6 +20,7 @@ $title = "RentASnow - Details";
             <div class="col-2"><?= $detail['disponible']?></div>
             <div class="col-2"><?= $detail['details']?></div>
             <div class="col-2"><?= $detail['image']?><img src="view/images"></div>
+
         </div>
     <?php } ?>
 </div>

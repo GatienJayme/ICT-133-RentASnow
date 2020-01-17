@@ -8,30 +8,34 @@ ob_start();
 $title = "RentASnow - Login";
 ?>
 
-    <!-- ________ Login _____________-->
-    <div class="span12">
-        <h1>Page de connexion</h1>
-            <div class="row mt-4">
-                <table>
-                    <tr>
-                        <td><label for="Votre identifiant">Votre identifiant</label></td>
-                        <td><input type="text" name="pseudo"/></td>
-                    </tr>
+<!-- ________ Login _____________-->
+<div class="span12">
+    <h1>Connexion</h1>
+    <div class="row mt-4">
+        <form action="index.php?action=connect" method="post">
+            <table id="compte">
+                <tr>
+                    <td><label for="Votre identifiant">Votre identifiant</label></td>
+                    <td><input type="text" name="pseudo" required/></td>
+                </tr>
 
-                    <tr>
-                        <td><label for="mdp"></label>Mot de passe</td>
-                        <td><input type="password" name="mot de passe"/></td>
-                    </tr>
-                    <tr>
+                <tr>
+                    <td><label for="mdp"></label>Mot de passe</td>
+                    <td><input type="password" name="mdp" required/></td>
+                </tr>
+                <tr>
                     <td><label for="mdp"></label>Confirmation du mot de passe</td>
-                        <td><input type="password" name="confirmation du mot de passe"/></td>
-                    </tr>
-                    <tr>
-                        <td><button><a href="index.php?action=connect>">Se connecter</a></button></td>
-                    </tr>
-                </table>
-            </div>
+                    <td><input type="password" name="conf mdp"/></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" name="envoyer">Se connecter</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
+</div>
 
 <?php
 $content = ob_get_clean();
