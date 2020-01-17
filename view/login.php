@@ -24,10 +24,6 @@ $title = "RentASnow - Login";
                     <td><input type="password" name="mdp" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="mdp"></label>Confirmation du mot de passe</td>
-                    <td><input type="password" name="conf mdp"/></td>
-                </tr>
-                <tr>
                     <td>
                         <button type="submit" name="envoyer">Se connecter</button>
                     </td>

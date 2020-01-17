@@ -6,7 +6,7 @@
     "bigimage": "B101.jpg",
     "smallimage": "B101_small.jpg",
     "dateretour": "",
-    "disponible": true,
+    "disponible": "Encore présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -16,7 +16,7 @@
     "bigimage": "B126.jpg",
     "smallimage": "B126_small.jpg",
     "dateretour": "2020-01-09",
-    "disponible": false,
+    "disponible": "Plus présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -26,7 +26,7 @@
     "bigimage": "B327.jpg",
     "smallimage": "B327_small.jpg",
     "dateretour": "2020-02-02",
-    "disponible": false,
+    "disponible": "Plus présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -36,7 +36,7 @@
     "bigimage": "K067.jpg",
     "smallimage": "K067_small.jpg",
     "dateretour": "2020-01-15",
-    "disponible": false,
+    "disponible": "Plus présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -46,7 +46,7 @@
     "bigimage": "K266.jpg",
     "smallimage": "K266_small.jpg",
     "dateretour": "",
-    "disponible": true,
+    "disponible": "Encore présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -56,7 +56,7 @@
     "bigimage": "K409.jpg",
     "smallimage": "K409_small.jpg",
     "dateretour": "",
-    "disponible": true,
+    "disponible": "Encore présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -66,7 +66,7 @@
     "bigimage": "N100.jpg",
     "smallimage": "N100_small.jpg",
     "dateretour": "2020-03-19",
-    "disponible": false,
+    "disponible": "Plus présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -76,7 +76,7 @@
     "bigimage": "N754.jpg",
     "smallimage": "N754_small.jpg",
     "dateretour": "2020-02-12",
-    "disponible": false,
+    "disponible": "Plus présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -86,7 +86,7 @@
     "bigimage": "P067.jpg",
     "smallimage": "P067_small.jpg",
     "dateretour": "2020-04-06",
-    "disponible": false,
+    "disponible": "Plus présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   },
   {
@@ -96,7 +96,7 @@
     "bigimage": "P165.jpg",
     "smallimage": "P165_small.jpg",
     "dateretour": "",
-    "disponible": true,
+    "disponible": "Encore présent",
     "details": "Suberbe planche flexible et belle avec des flammes dessus"
   }
 ]

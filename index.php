@@ -21,8 +21,8 @@ switch ($action) {
         details($snowid);
         break;
     case'connect':
-        var_dump($_POST);
-        die();
+        connect();
+        break;
     case 'login':
         login();
         break;

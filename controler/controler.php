@@ -22,11 +22,24 @@ function snows()
 
 function details($snowid){
     $listsnows = getSnows();
-   // foreach($)
+    //foreach($)
     require_once 'view/details.php';
 }
 
 function login() {
     require_once 'view/login.php';
+}
+
+function connect() {
+    if(isset($_POST['envoyer'])) {
+        $username = $_POST['pseudo'];
+        $password = $_POST['mdp'];
+    }
+    if($username=='Gatien' && $password=='1234567') {
+        require_once 'view/home.php';
+    }
+    else{
+        require_once "view/login.php";
+    }
 }
 ?>
