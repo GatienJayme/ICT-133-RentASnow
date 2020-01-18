@@ -36,19 +36,19 @@ function snows()
 
 
 
-
-function details($snowid){
+function details($snowid)
+{
+    $snow['id'] = $snowid;
     $listsnows = getSnows();
-    if(isset($_GET['model']) == true) {
-        $snowid = $_GET['model'];
+    if (isset($_GET['id']) == true) {
+        $snowid = $_GET['id'];
     }
     require_once 'view/details.php';
 }
 
 
 
-
-/*function detailsproductsshow()
+function detailsproductsshow()
 {
     $listproducts = getProducts();
     if (isset($_GET['model']) == true) {
@@ -58,7 +58,8 @@ function details($snowid){
     }
 
     require_once 'view/detailsproducts.php';
-} */
+}
+
 
 
 
@@ -70,26 +71,35 @@ function details($snowid){
 
 
 // La fonction login est utilisée pour simplement renvoyer a la vue du login
-function login() {
+function login()
+{
     require_once 'view/login.php';
 }
 
 // La fonction connect est utilisée pour se connecter avec un utilisateur dans le site rent a snow et renvoyer
 // l'utilisateur connecter à la page home avec le require
-function connect() {
-    if(isset($_POST['envoyer'])) {
+function connect()
+{
+    // Le isset utilisé ici sert a cacher le mot de passe et l'utilisateur donné dans la query string
+    if (isset($_POST['envoyer'])) {
         $username = $_POST['pseudo'];
         $password = $_POST['mdp'];
     }
-    if($username=='Gatien' && $password=='1234567') {
+    // Cette boucle sert a donné quel nom est utilisé pour se connecter avec quel mot de passe et aucun nom d'utilisateur
+    // ou mot de passe autre que celui donnée ne laissera connecté quelqu'un
+    if ($username == 'Gatien' && $password == '1234567') {
         $_SESSION['username'] = $username;
+    } else {
+        require_once 'view/login.php';
     }
     require_once 'view/home.php';
 }
 
 // La fonction disconnect est utilitée pour se déconnecter de notre compte et revenir au login avec le require
-function disconnect() {
+function disconnect()
+{
     unset($_SESSION['username']);
     require_once 'view/login.php';
 }
+
 ?>

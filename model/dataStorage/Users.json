@@ -1,0 +1,26 @@
+[
+  {
+    "username": "samuel",
+    "password": "samuelmdp",
+    "birthdate": "2000-12-18",
+    "wantnews": true,
+    "date-inscription": "2020-01-02",
+    "employe": false
+  },
+  {
+    "username": "benoit",
+    "password": "benoitmdp",
+    "birthdate": "2004-06-05",
+    "wantnews": false,
+    "date-inscription": "2020-01-02",
+    "employe": true
+  },
+  {
+    "username": "miguel",
+    "password": "miguelmdp",
+    "birthdate": "2002-11-15",
+    "wantnews": true,
+    "date-inscription": "2020-01-02",
+    "employe": false
+  }
+]

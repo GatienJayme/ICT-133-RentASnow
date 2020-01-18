@@ -27,6 +27,8 @@ switch ($action) {
     case 'login':
         login();
         break;
+    case 'user':
+        users();
     default:
         home();
 }
