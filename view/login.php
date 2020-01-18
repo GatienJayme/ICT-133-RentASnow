@@ -18,7 +18,6 @@ $title = "RentASnow - Login";
                     <td><label for="Votre identifiant">Votre identifiant</label></td>
                     <td><input type="text" name="pseudo" required/></td>
                 </tr>
-
                 <tr>
                     <td><label for="mdp"></label>Mot de passe</td>
                     <td><input type="password" name="mdp" required/></td>
