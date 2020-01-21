@@ -8,19 +8,19 @@
     "employe": false
   },
   {
-    "username": "benoit",
-    "password": "benoitmdp",
-    "birthdate": "2004-06-05",
-    "wantnews": false,
-    "date-inscription": "2020-01-02",
-    "employe": true
-  },
-  {
     "username": "miguel",
     "password": "miguelmdp",
     "birthdate": "2002-11-15",
     "wantnews": true,
     "date-inscription": "2020-01-02",
     "employe": false
+  },
+  {
+    "username": "Gatien",
+    "password": "1234567",
+    "birthdate": "2002-01-31",
+    "wantnews": false,
+    "date-inscription": "1920-02.24",
+    "employe": true
   }
 ]

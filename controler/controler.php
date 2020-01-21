@@ -24,18 +24,6 @@ function snows()
     require_once 'view/snows.php';
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 function details()
 {
     $snows = getSnows();
@@ -59,13 +47,18 @@ function connect()
     }
     // Cette boucle sert a donné quel nom est utilisé pour se connecter avec quel mot de passe et aucun nom d'utilisateur
     // ou mot de passe autre que celui donnée ne laissera connecté quelqu'un
-    if ($username == 'Gatien' && $password == '1234567') {
+    if($username == 'Gatien' && $password == '1234567') {
         $_SESSION['username'] = $username;
     } else {
         require_once 'view/login.php';
+        /*if($users = getUsers()) {
+            $_SESSION['username'] = $username;
+        } else {
+            require_once 'view/login.php';
+        }*/
     }
-    require_once 'view/home.php';
 }
+
 
 // La fonction disconnect est utilitée pour se déconnecter de notre compte et revenir au login avec le require
 function disconnect()
