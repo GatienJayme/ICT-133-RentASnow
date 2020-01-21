@@ -31,7 +31,7 @@ $title = "RentASnow - Snowboards";
                         <div class="col-2"><?= $snow['disponible'] ?></div>
                     </td>
                     <td>
-                        <button><a href="index.php?action=detailsnow&snow=<?= $snow['id'] ?>">Détails</a></button>
+                        <button><a href="index.php?action=detailsnow&listsnow=<?= $snow['id'] ?>">Détails</a></button>
                     </td>
                     <td>
                         <button><a href="index.php?action=detailsnow">Louer</a></button>

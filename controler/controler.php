@@ -36,39 +36,11 @@ function snows()
 
 
 
-function details($snowid)
+function details()
 {
-    $snow['id'] = $snowid;
-    $listsnows = getSnows();
-    if (isset($_GET['id']) == true) {
-        $snowid = $_GET['id'];
-    }
+    $snows = getSnows();
     require_once 'view/details.php';
 }
-
-
-
-function detailsproductsshow()
-{
-    $listproducts = getProducts();
-    if (isset($_GET['model']) == true) {
-        $modelesnow = $_GET['model'];
-        $title = "Détails de $modelesnow";
-        $description = "Et vous pouvez ensuite louer !";
-    }
-
-    require_once 'view/detailsproducts.php';
-}
-
-
-
-
-
-
-
-
-
-
 
 // La fonction login est utilisée pour simplement renvoyer a la vue du login
 function login()

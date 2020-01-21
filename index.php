@@ -9,14 +9,14 @@ session_start();
 require "controler/controler.php";
 
 $action = $_GET['action'];
-$snowid = $_GET['id'];
+
 
 switch ($action) {
     case 'displaySnows':
         snows();
         break;
     case 'detailsnow':
-        details($snowid);
+        details();
         break;
     case'connect':
         connect();

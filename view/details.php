@@ -7,11 +7,30 @@
 ob_start();
 $title = "RentASnow - Details";
 ?>
+<?php
+$snows = getSnows();
+$listsnow['id'] = $_GET['listsnow'];
+foreach ($snows as $snow) {
+    if($snow["id"] == $listsnow['id']){
 
+        $listsnow = [
+            "modele" => $snow['modele'],
+            "marque" => $snow['marque'],
+            "bigimage" => $snow['bigimage'],
+            "smallimage" => $snow['smallimage'],
+            "dateretour" => $snow['dateretour'],
+            "disponible" => $snow['disponible'],
+            "details" => $snow['details']
+        ];
+
+
+    }
+
+}
+?>
 <!-- ________ details _____________-->
 <div class="span12">
     <h1>Les détails des snowboards</h1>
-    <?php foreach ($listsnows as $listsnow) { ?>
         <div class="row mt-4">
             <table border="1px">
                 <tr>
@@ -39,7 +58,6 @@ $title = "RentASnow - Details";
                 </tr>
             </table>
         </div>
-    <?php } ?>
 </div>
 
 <?php
