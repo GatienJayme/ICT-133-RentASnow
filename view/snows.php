@@ -9,7 +9,6 @@ $title = "RentASnow - Snowboards";
 ?>
 
 <!-- ________ Snowboards _____________-->
-
 <h1>Les Snowboards</h1>
 <?php foreach ($snows as $snow) { ?>
     <table class="table">

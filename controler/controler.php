@@ -24,13 +24,19 @@ function snows()
     require_once 'view/snows.php';
 }
 
+/*function users() {
+    $users = getaffuser();
+}*/
+
+// Cette fonction fait exactement la même chose que la fonction snows mais les données seront renvoyés à la vue details grace au require
 function details()
 {
     $snows = getSnows();
+    // $detail = getdetails();
     require_once 'view/details.php';
 }
 
-// La fonction login est utilisée pour simplement renvoyer a la vue du login
+// Redirige à la vue du login
 function login()
 {
     require_once 'view/login.php';
@@ -40,7 +46,7 @@ function login()
 // l'utilisateur connecter à la page home avec le require
 function connect()
 {
-    // Le isset utilisé ici sert a cacher le mot de passe et l'utilisateur donné dans la query string
+    //
     if (isset($_POST['envoyer'])) {
         $username = $_POST['pseudo'];
         $password = $_POST['mdp'];
@@ -51,12 +57,13 @@ function connect()
         $_SESSION['username'] = $username;
     } else {
         require_once 'view/login.php';
+        }
         /*if($users = getUsers()) {
+            foreach ($users as $user) {}
             $_SESSION['username'] = $username;
         } else {
             require_once 'view/login.php';
         }*/
-    }
 }
 
 
