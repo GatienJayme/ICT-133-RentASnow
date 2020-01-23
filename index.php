@@ -23,7 +23,6 @@ switch ($action) {
     case'connect':
         if(isset($username,$password)) {
             connect($username, $password);
-            var_dump($username);
         }
         break;
     case 'logout':

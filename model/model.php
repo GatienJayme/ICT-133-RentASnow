@@ -26,7 +26,7 @@ function getUsers()
 // Trouver un utilisateur avec son username
 function getoneuser($username) {
     $users = getUsers();
-    //
+    // Prends la valeur du nom et la stocke dans une variable
     foreach ($users as $user) {
         if ($user["username"] == $username) {
             return $user;

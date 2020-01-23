@@ -41,19 +41,17 @@ function login()
 // l'utilisateur connecter à la page home avec le require
 function connect($username, $password)
 {
+    // variable utiliser pour stocker les valeurs d'un user
     $theuser = getoneuser($username);
-    // je suis ici et je dois faire un if de user si il est null ou pas
-    var_dump($theuser);
-    die();
-    // Cette boucle sert a donné quel nom est utilisé pour se connecter avec quel mot de passe et aucun nom d'utilisateur
-    // ou mot de passe autre que ceux dans le fichier json peuvent être utilisé
-
+    // Cette boucle connecte le user utilisé si le nom d'utilisateur et le mot de passe corresspond au fichier
+    if ($theuser['username'] == $username) {
         $_SESSION['username'] = $theuser['username'];
         require_once "view/home.php";
+    } else {
+        $username = null;
         require_once 'view/login.php';
-
+    }
 }
-
 
 // La fonction disconnect est utilitée pour se déconnecter de notre compte et revenir au login avec le require
 function disconnect()
@@ -61,4 +59,5 @@ function disconnect()
     unset($_SESSION['username']);
     require_once 'view/login.php';
 }
+
 ?>
