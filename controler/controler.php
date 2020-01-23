@@ -43,13 +43,16 @@ function connect($username, $password)
 {
     // variable utiliser pour stocker les valeurs d'un user
     $theuser = getoneuser($username);
-    // Cette boucle connecte le user utilisé si le nom d'utilisateur et le mot de passe corresspond au fichier
-    if ($theuser['username'] == $username) {
-        $_SESSION['username'] = $theuser['username'];
-        require_once "view/home.php";
-    } else {
-        $username = null;
-        require_once 'view/login.php';
+    $hash = password_hash($password,PASSWORD_DEFAULT);
+    if (password_verify($password, $hash)) {
+        // Cette boucle connecte le user utilisé si le nom d'utilisateur et le mot de passe corresspond au fichier
+        if ($theuser['username'] == $username) {
+            $_SESSION['username'] = $theuser['username'];
+            require_once "view/home.php";
+        } else {
+            $username = null;
+            require_once 'view/login.php';
+        }
     }
 }
 

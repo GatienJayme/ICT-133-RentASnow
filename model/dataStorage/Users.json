@@ -1,7 +1,7 @@
 [
   {
     "username": "samuel",
-    "password": "samuelmdp",
+    "password": "$2y$10$oSP3g3Wn7HTureEhwgcKi.bYWcN54NSiIz.HjazyKOuYg76Cyy6NS",
     "birthdate": "2000-12-18",
     "wantnews": true,
     "date-inscription": "2020-01-02",
@@ -9,7 +9,7 @@
   },
   {
     "username": "miguel",
-    "password": "miguelmdp",
+    "password": "$2y$10$ORQtFfLoXT0TNr\/tnn0WB.1SBPiTmgUB\/mljGc9kVJYuYcss1MSjy",
     "birthdate": "2002-11-15",
     "wantnews": true,
     "date-inscription": "2020-01-02",
@@ -17,7 +17,7 @@
   },
   {
     "username": "Gatien",
-    "password": "1234567",
+    "password": "$2y$10$84naE8WOUX3f4HcaYAWR3u.eGS1wAdk0jKpbfTC4VT6afSgiVIfpK",
     "birthdate": "2002-01-31",
     "wantnews": false,
     "date-inscription": "1920-02.24",
