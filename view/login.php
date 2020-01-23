@@ -16,11 +16,11 @@ $title = "RentASnow - Login";
             <table id="compte">
                 <tr>
                     <td><label for="Votre identifiant">Votre identifiant</label></td>
-                    <td><input type="text" name="pseudo" required/></td>
+                    <td><input type="text" name="username" required/></td>
                 </tr>
                 <tr>
                     <td><label for="mdp"></label>Mot de passe</td>
-                    <td><input type="password" name="mdp" required/></td>
+                    <td><input type="password" name="password" required/></td>
                 </tr>
                 <tr>
                     <td>

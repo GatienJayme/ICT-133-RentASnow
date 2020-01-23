@@ -10,6 +10,7 @@ require "controler/controler.php";
 
 //
 $action = $_GET['action'];
+extract($_POST); // $username, $password
 
 //
 switch ($action) {
@@ -20,7 +21,10 @@ switch ($action) {
         details();
         break;
     case'connect':
-        connect();
+        if(isset($username,$password)) {
+            connect($username, $password);
+            var_dump($username);
+        }
         break;
     case 'logout':
         disconnect();
@@ -28,8 +32,6 @@ switch ($action) {
     case 'login':
         login();
         break;
-    case 'user':
-        users();
     default:
         home();
 }

@@ -24,15 +24,10 @@ function snows()
     require_once 'view/snows.php';
 }
 
-/*function users() {
-    $users = getaffuser();
-}*/
-
 // Cette fonction fait exactement la même chose que la fonction snows mais les données seront renvoyés à la vue details grace au require
 function details()
 {
-    $snows = getSnows();
-    // $detail = getdetails();
+    $thesnow = getonesnow($listsnow);
     require_once 'view/details.php';
 }
 
@@ -44,26 +39,19 @@ function login()
 
 // La fonction connect est utilisée pour se connecter avec un utilisateur dans le site rent a snow et renvoyer
 // l'utilisateur connecter à la page home avec le require
-function connect()
+function connect($username, $password)
 {
-    //
-    if (isset($_POST['envoyer'])) {
-        $username = $_POST['pseudo'];
-        $password = $_POST['mdp'];
-    }
+    $theuser = getoneuser($username);
+    // je suis ici et je dois faire un if de user si il est null ou pas
+    var_dump($theuser);
+    die();
     // Cette boucle sert a donné quel nom est utilisé pour se connecter avec quel mot de passe et aucun nom d'utilisateur
-    // ou mot de passe autre que celui donnée ne laissera connecté quelqu'un
-    if($username == 'Gatien' && $password == '1234567') {
-        $_SESSION['username'] = $username;
-    } else {
+    // ou mot de passe autre que ceux dans le fichier json peuvent être utilisé
+
+        $_SESSION['username'] = $theuser['username'];
+        require_once "view/home.php";
         require_once 'view/login.php';
-        }
-        /*if($users = getUsers()) {
-            foreach ($users as $user) {}
-            $_SESSION['username'] = $username;
-        } else {
-            require_once 'view/login.php';
-        }*/
+
 }
 
 
@@ -73,5 +61,4 @@ function disconnect()
     unset($_SESSION['username']);
     require_once 'view/login.php';
 }
-
 ?>

@@ -23,35 +23,27 @@ function getUsers()
     return json_decode(file_get_contents("model/dataStorage/Users.json"), true);
 }
 
-/*function getaffuser() {
-    $users['id'] = $_GET['user'];
+// Trouver un utilisateur avec son username
+function getoneuser($username) {
+    $users = getUsers();
+    //
     foreach ($users as $user) {
-        if ($users["id"] == $user['id']) {
-            $users = [
-                "username" => $username,
-                "password" => $password,
-                "birthdate" => $birthdate,
-                "wantnews" => $wantnews,
-                "date-inscription" => $dateinscr,
-                "employe" => $employe
-            ];
+        if ($user["username"] == $username) {
+            return $user;
         }
     }
-}*/
+    return null;
+}
 
-/*function getdetails() {
+//
+function getonesnow($listsnow) {
+    $snows = getSnows();
+    $listsnow['id'] = $_GET['listsnow'];
     foreach ($snows as $snow) {
         if ($snow["id"] == $listsnow['id']) {
-            $listsnow = [
-                "modele" => $snow['modele'],
-                "marque" => $snow['marque'],
-                "bigimage" => $snow['bigimage'],
-                "smallimage" => $snow['smallimage'],
-                "dateretour" => $snow['dateretour'],
-                "disponible" => $snow['disponible'],
-                "details" => $snow['details']
-            ];
+            $listsnow = $snow;
         }
     }
-}*/
+    return $listsnow;
+}
 ?>

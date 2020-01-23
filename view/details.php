@@ -8,21 +8,6 @@ ob_start();
 $title = "RentASnow - Details";
 ?>
 <?php
-$snows = getSnows();
-$listsnow['id'] = $_GET['listsnow'];
-foreach ($snows as $snow) {
-    if ($snow["id"] == $listsnow['id']) {
-        $listsnow = [
-            "modele" => $snow['modele'],
-            "marque" => $snow['marque'],
-            "bigimage" => $snow['bigimage'],
-            "smallimage" => $snow['smallimage'],
-            "dateretour" => $snow['dateretour'],
-            "disponible" => $snow['disponible'],
-            "details" => $snow['details']
-        ];
-    }
-}
 ?>
 <!-- ________ details _____________-->
 <div class="span12">
@@ -31,22 +16,22 @@ foreach ($snows as $snow) {
         <table border="1px">
             <tr>
                 <td>
-                    <div class="col-2"><?= $listsnow['modele'] ?></div>
+                    <div class="col-2"><?= $thesnow['modele'] ?></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $listsnow['marque'] ?></div>
+                    <div class="col-2"><?= $thesnow['marque'] ?></div>
                 </td>
                 <td>
-                    <div class="col-lg-10 col-md-5"><img src="view/images/<?= $listsnow['bigimage'] ?>"></div>
+                    <div class="col-lg-10 col-md-5"><img src="view/images/<?= $thesnow['bigimage'] ?>"></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $listsnow['dateretour'] ?></div>
+                    <div class="col-2"><?= $thesnow['dateretour'] ?></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $listsnow['disponible'] ?></div>
+                    <div class="col-2"><?= $thesnow['disponible'] ?></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $listsnow['details'] ?></div>
+                    <div class="col-2"><?= $thesnow['details'] ?></div>
                 </td>
                 <td>
                     <button><a href="index.php?action=detailsnow">Louer</a></button>
