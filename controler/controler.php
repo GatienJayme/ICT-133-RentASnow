@@ -17,8 +17,6 @@ function home()
 function snows()
 {
     $snows = getSnows();
-    $delete = delete();
-    $update = update();
     require_once 'view/snows.php';
 }
 
@@ -35,7 +33,7 @@ function login()
     require_once 'view/login.php';
 }
 
-// Demande un utilisateur et un mot de passe si ils sont corrects la session s'ouvre sinon le programme retourne rien
+// Demande un nom d'utilisateur et un mot de passe s'ils sont corrects la session s'ouvre sinon le programme retourne rien
 function connect($username, $password)
 {
     // variable utiliser pour stocker les valeurs d'un user
@@ -54,13 +52,14 @@ function connect($username, $password)
     }
 }
 
-// Permet de déconnecter la personne avec sa session ouverte
+// Permet de déconnecter la personne connecté à sa session
 function disconnect()
 {
     unset($_SESSION['username']);
     require_once 'view/login.php';
 }
 
+// redirige à la vue détails
 function louer() {
     require_once "view/details.php";
 }

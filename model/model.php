@@ -23,7 +23,7 @@ function getUsers()
     return json_decode(file_get_contents("model/dataStorage/Users.json"), true);
 }
 
-// Trouver un utilisateur avec son username
+// Permet de trouver un utilisateur avec son username
 function getoneuser($username)
 {
     $users = getUsers();
@@ -49,6 +49,7 @@ function getonesnow($listsnow)
     return $listsnow;
 }
 
+// Permet de modifier les informations d'un snowboard
 function update()
 {
     $snows = getSnows();
@@ -56,19 +57,22 @@ function update()
     $snows[3]['modele'] = 'New K067'; // update
 }
 
-//
+// Permet de supprimer toutes les informations du snowboard
 function delete()
 {
     $snows = getSnows();
     unset($snows[2]); // delete
-    $snows[2] = ["id" => 2, "modele" => "B126", "marque" => "Free Thinker", "bigimage" => "B126.jpg", "smallimage" => "B126_small.jpg", "dateretour" => "2020-01-09", "disponible" => "Plus présent",
-    "details" => "Suberbe planche flexible et belle avec des flammes dessus"];
+}
+
+// Permet d'ajouter un nouveau snowboard
+function addsnow() {
+    $snows[11] = ["id" => 2, "modele" => "D423", "marque" => "Torta", "bigimage" => "B126.jpg", "smallimage" => "B126_small.jpg", "dateretour" => "2020.08.9", "disponible" => "Plus présent",
+        "details" => "Suberbe planche flexible et belle avec des flammes dessus"];
     file_put_contents('Snows.json', json_encode($snows));
 }
 
+// Redirige à la vue détails
 function getRent() {
-    $snows = getSnows();
-    // if()    $snows['disponible'] =
         require_once "view/details.php";
 }
 ?>
