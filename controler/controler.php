@@ -8,23 +8,23 @@ require_once 'model/model.php';
 
 // This file contains nothing but functions
 
-// La fonction home est utilisé pour aller chercher les données dans le model, ses données sont stockées dans une variable
-// $news et elles seront envoyer à la vue home avec le require
+// Va chercher les données dans le model les stockent dans une variable et renvoit à la vue home
 function home()
 {
     $news = getNews();
     require_once 'view/home.php';
 }
 
-// La fonction snows est utilisé pour aller chercher les données dans le model, ses données sont stockées dans une variable
-// $snows et elles seront envoyer à la vue snows avec le require
+// Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des snowboards
 function snows()
 {
     $snows = getSnows();
+    $delete = delete();
+    $update = update();
     require_once 'view/snows.php';
 }
 
-// Cette fonction fait exactement la même chose que la fonction snows mais les données seront renvoyés à la vue details grace au require
+// Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des détails
 function details()
 {
     $thesnow = getonesnow($listsnow);
