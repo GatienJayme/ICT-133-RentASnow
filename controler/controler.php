@@ -42,7 +42,7 @@ function connect($username, $password)
     $hash = password_hash($password, PASSWORD_DEFAULT);
     if (password_verify($password, $hash)) {
         // Cette boucle connecte le user utilisé si le nom d'utilisateur et le mot de passe corresspond au fichier
-        if ($theuser['username'] == $username) {
+        if ($theuser['username'] == $username && $theuser['employe']) {
             $_SESSION['username'] = $theuser['username'];
             require_once "view/home.php";
         } else {
@@ -60,7 +60,30 @@ function disconnect()
 }
 
 // redirige à la vue détails
-function louer() {
+function louer()
+{
     require_once "view/details.php";
 }
+
+// ajoute un snowboard
+function addsnow($model, $marque, $details)
+{
+    $addsnowboard = add($model, $marque, $details);
+    require_once 'view/add.php';
+}
+
+// supprime un snowboard
+function deletesnowboard($id)
+{
+    $supprimer = delete($id);
+    louer();
+}
+
+// modifie un snowboard
+function updatesnowboard()
+{
+    $modifier = update();
+    louer();
+}
+
 ?>

@@ -34,6 +34,17 @@ $title = "RentASnow - Details";
                     <div class="col-2"><?= $thesnow['details'] ?></div>
                 </td>
                 <td>
+                    <?php if ($_SESSION['employe'] == true) { ?>
+
+
+                        <br> <br>
+                        <button><a href="index.php? action=delete">Supprimer</a></button>
+
+                        <br> <br>
+                        <button><a href="index.php? action=update">Modifier</a></button>
+
+                        <br> <br> <br> <br>
+                    <?php } ?>
                     <label for="Rent">Louer</label>
                     <input type="checkbox" name="rent">
                     <br> <br>

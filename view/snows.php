@@ -10,6 +10,7 @@ $title = "RentASnow - Snowboards";
 
 <!-- ________ Snowboards _____________-->
 <h1>Les Snowboards</h1>
+<button><a href="index.php?action=add">Ajouter</a></button>
 <?php foreach ($snows as $snow) { ?>
     <table class="table">
         <tr class="text-center">

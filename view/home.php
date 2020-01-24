@@ -16,7 +16,8 @@ $title = "RentASnow - Accueil";
                 <div class="camera_caption fadeFromBottom cap1">Les derniers modèles toujours à disposition.</div>
             </div>
             <div data-src="view/images/slider/1.jpg">
-                <div class="camera_caption fadeFromBottom cap2">Découvrez des paysages fabuleux avec des sensations.</div>
+                <div class="camera_caption fadeFromBottom cap2">Découvrez des paysages fabuleux avec des sensations.
+                </div>
             </div>
             <div data-src="view/images/slider/2.jpg"></div>
         </div>

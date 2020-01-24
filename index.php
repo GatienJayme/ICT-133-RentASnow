@@ -20,7 +20,7 @@ switch ($action) {
         details();
         break;
     case'connect':
-        if(isset($username,$password)) {
+        if (isset($username, $password)) {
             connect($username, $password);
         }
         break;
@@ -32,6 +32,19 @@ switch ($action) {
         break;
     case 'click':
         louer();
+        break;
+    case 'delete':
+        $id = $_GET['listsnow'];
+        deletesnowboard($id);
+        break;
+    case 'update':
+        updatesnowboard();
+        break;
+    case 'add':
+        $model = $_GET['snows'];
+        $marque = $_GET['snows'];
+        $details = $_GET['snows'];
+        addsnow($model, $marque, $details);
         break;
     default:
         home();

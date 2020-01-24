@@ -58,21 +58,26 @@ function update()
 }
 
 // Permet de supprimer toutes les informations du snowboard
-function delete()
+function delete($id)
 {
     $snows = getSnows();
-    unset($snows[2]); // delete
+    foreach ($snows as $key => $snow) {
+        if ($snow['id'] == $id) {
+            unset($snow[$key]);
+        }
+    }
+    file_put_contents('model/dataStorage/listofsnowboard.json', json_encode($snows));
+    return $snows;
 }
 
 // Permet d'ajouter un nouveau snowboard
-function addsnow() {
-    $snows[11] = ["id" => 2, "modele" => "D423", "marque" => "Torta", "bigimage" => "B126.jpg", "smallimage" => "B126_small.jpg", "dateretour" => "2020.08.9", "disponible" => "Plus présent",
-        "details" => "Suberbe planche flexible et belle avec des flammes dessus"];
-    file_put_contents('Snows.json', json_encode($snows));
+function add($model, $marque, $details)
+{
+    $snows = getSnows();
+    $snows[11] = ["id" => 11, "model" => $model, "marque" => $marque, "bigimage" => "K226.jpg", "smallimage" => "B126_small.jpg", "dateretour" => "2020.08.9", "disponible" => "Plus présent",
+        "details" => $details];
+    file_put_contents('model/dataStorage/listofsnowboard.json', json_encode($snows));
+    return $snows;
 }
 
-// Redirige à la vue détails
-function getRent() {
-        require_once "view/details.php";
-}
 ?>
