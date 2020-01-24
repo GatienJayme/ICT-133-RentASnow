@@ -61,8 +61,14 @@ function delete()
 {
     $snows = getSnows();
     unset($snows[2]); // delete
-    $snows[] = ["id" => 2, "modele" => "B126", "marque" => "Free Thinker", "bigimage" => "B126.jpg", "smallimage" => "B126_small.jpg", "dateretour" => "2020-01-09", "disponible" => "Plus présent",
+    $snows[2] = ["id" => 2, "modele" => "B126", "marque" => "Free Thinker", "bigimage" => "B126.jpg", "smallimage" => "B126_small.jpg", "dateretour" => "2020-01-09", "disponible" => "Plus présent",
     "details" => "Suberbe planche flexible et belle avec des flammes dessus"];
     file_put_contents('Snows.json', json_encode($snows));
+}
+
+function getRent() {
+    $snows = getSnows();
+    // if()    $snows['disponible'] =
+        require_once "view/details.php";
 }
 ?>

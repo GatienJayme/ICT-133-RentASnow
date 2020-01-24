@@ -34,7 +34,14 @@ $title = "RentASnow - Details";
                     <div class="col-2"><?= $thesnow['details'] ?></div>
                 </td>
                 <td>
-                    <button><a href="index.php?action=detailsnow">Louer</a></button>
+                    <label for="Rent">Louer</label>
+                    <input type="checkbox" name="rent">
+                    <br> <br>
+                    <label for="calendar">Date de retour</label>
+                    <br>
+                    <input type="date" name="dateretour">
+                    <br> <br>
+                    <button name="cmdlouer"><a href="index.php?action=click">Louer</a></button>
                 </td>
             </tr>
         </table>

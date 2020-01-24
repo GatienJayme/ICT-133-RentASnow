@@ -10,3 +10,4 @@ function startCamera()
 $(document).ready( function() {
     startCamera()
 });
+

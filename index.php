@@ -8,11 +8,10 @@ session_start();
 
 require "controler/controler.php";
 
-//
 $action = $_GET['action'];
 extract($_POST); // $username, $password
 
-//
+// Fonction déclancher selon l'action faite
 switch ($action) {
     case 'displaySnows':
         snows();
@@ -30,6 +29,9 @@ switch ($action) {
         break;
     case 'login':
         login();
+        break;
+    case 'click':
+        louer();
         break;
     default:
         home();
