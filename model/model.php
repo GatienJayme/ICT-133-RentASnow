@@ -5,16 +5,46 @@
     Version: 1.0
 */
 
+function getPDO()
+{
+    require '.const.php';
+    $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $password);
+    return $dbh;
+}
+
 // Traduit les données du news.json
 function getNews()
 {
-    return json_decode(file_get_contents("model/dataStorage/news.json"), true);
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT news.title, news.text,news.date, users.firstname, users.lastname from
+                    news inner join users on news.user_id=users.id';
+        $statement = $dbh->prepare($query); // prepare query
+        $statement->execute(); // execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 }
 
 // Traduit les données du listofsnowboard.json
 function getSnows()
 {
-    return json_decode(file_get_contents("model/dataStorage/listofsnowboard.json"), true);
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM snowtypes';
+        $statement = $dbh->prepare($query); // prepare query
+        $statement->execute(); // execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 }
 
 // Traduit les données du Users.json

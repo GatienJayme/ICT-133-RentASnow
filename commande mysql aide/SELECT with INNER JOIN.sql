@@ -1,0 +1,1 @@
+SELECT news.title, news.text,news.date, users.firstname, users.lastname from news inner join users on news.user_id=users.id;
