@@ -35,7 +35,7 @@ function getSnows()
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT snowtypes.brand, snowtypes.model, snowtypes.photo, snows.available FROM snows INNER JOIN snowtypes ON snowtypes.id=snows.snowtype_id;';
+        $query = 'SELECT snowtypes.brand, snowtypes.model, snowtypes.photo FROM snowtypes';
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
@@ -47,8 +47,8 @@ function getSnows()
     }
 }
 
-// Traduit les données du Users.json
-function getUsers()
+// Retourne le bon user s'il a le bon email et mdp par rapport a son email ou il retourne null
+function getUsersByEmail()
 {
     // TODO Ecrire le code pour récupérer les users dans un tableau de tableaux associatifs
     try {
@@ -67,13 +67,14 @@ function getUsers()
 
 $users = getUsers();
 
-/*foreach ($users as $user)
+
+foreach ($users as $user)
 {
     $hash = password_hash($user['firstname'],PASSWORD_DEFAULT);
     echo $user['firstname']." => $hash \n";
     // TODO Ecrire le code pour mettre à jour le mot de passe dans la base de données avec $hash
-    $querypwd = 'SELECT ';
-}*/
+
+}
 
 // Permet de trouver un utilisateur avec son username
 function getoneuser($username)

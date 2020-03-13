@@ -17,13 +17,17 @@ function home()
 function snows()
 {
     $snows = getSnows();
-    $photo = $snows['photo'];
-    $point = '.';
-    $pospoint = strpos($photo, $point);
-    $extractphoto = substr($photo, 0, $pospoint);
-    $extractsmallphoto = $extractphoto . "small" . ".jpg";
+    foreach ($snows as $i => $snow) {
+        $photo = $snow['photo']; // B126.jpg
+        $point = '.';
+        $pospoint = strpos($photo, $point); // pos du point
+        $extractphoto = substr($photo, 0, $pospoint); // B126
+        $extractsmallphoto = $extractphoto . "_small" . ".jpg";
+        $snows[$i]['smallphoto'] = $extractsmallphoto;
+    }
     require_once 'view/snows.php';
 }
+
 
 // Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des détails
 function details()

@@ -23,26 +23,16 @@ $title = "RentASnow - Snowboards";
             <th>
                 Image
             </th>
-            <th>
-                Date du retour
-            </th>
-            <th>
-                disponible
-            </th>
         </tr>
         <tr>
             <td class="text-center">
-                <?= $snow['modele'] ?>
+                <?= $snow['model'] ?>
             </td>
             <td>
-                <?= $snow['marque'] ?>
+                <?= $snow['brand'] ?>
             </td>
             <td>
-                <img src="view/images/<?= $snow['smallimage'] ?>">
-                <img src="view/images" <?= $snows[$extractsmallphoto] ?>
-            </td>
-            <td>
-                <?= $snow['disponible'] ?>
+                <img src="view/images/<?= $snow['smallphoto'] ?>">
             </td>
             <td>
                 <button><a href="index.php?action=detailsnow&listsnow=<?= $snow['id'] ?>">Détails</a></button>
