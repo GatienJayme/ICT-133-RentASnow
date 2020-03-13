@@ -35,7 +35,7 @@ function getSnows()
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM snowtypes';
+        $query = 'SELECT snowtypes.brand, snowtypes.model, snowtypes.photo, snows.available FROM snows INNER JOIN snowtypes ON snowtypes.id=snows.snowtype_id;';
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
@@ -50,8 +50,30 @@ function getSnows()
 // Traduit les données du Users.json
 function getUsers()
 {
-    return json_decode(file_get_contents("model/dataStorage/Users.json"), true);
+    // TODO Ecrire le code pour récupérer les users dans un tableau de tableaux associatifs
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM users';
+        $statement = $dbh->prepare($query); // prepare query
+        $statement->execute(); // execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 }
+
+$users = getUsers();
+
+/*foreach ($users as $user)
+{
+    $hash = password_hash($user['firstname'],PASSWORD_DEFAULT);
+    echo $user['firstname']." => $hash \n";
+    // TODO Ecrire le code pour mettre à jour le mot de passe dans la base de données avec $hash
+    $querypwd = 'SELECT ';
+}*/
 
 // Permet de trouver un utilisateur avec son username
 function getoneuser($username)

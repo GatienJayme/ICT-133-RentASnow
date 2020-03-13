@@ -17,6 +17,11 @@ function home()
 function snows()
 {
     $snows = getSnows();
+    $photo = $snows['photo'];
+    $point = '.';
+    $pospoint = strpos($photo, $point);
+    $extractphoto = substr($photo, 0, $pospoint);
+    $extractsmallphoto = $extractphoto . "small" . ".jpg";
     require_once 'view/snows.php';
 }
 

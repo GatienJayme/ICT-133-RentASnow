@@ -39,9 +39,7 @@ $title = "RentASnow - Snowboards";
             </td>
             <td>
                 <img src="view/images/<?= $snow['smallimage'] ?>">
-            </td>
-            <td>
-                <?= $snow['dateretour'] ?>
+                <img src="view/images" <?= $snows[$extractsmallphoto] ?>
             </td>
             <td>
                 <?= $snow['disponible'] ?>
