@@ -1,0 +1,1 @@
+SELECT snowtypes.brand, snowtypes.model, snowtypes.photo, snows.available FROM snows INNER JOIN snowtypes ON snowtypes.id=snows.snowtype_id;
