@@ -47,17 +47,13 @@ function connect($username, $password)
 {
     // variable utiliser pour stocker les valeurs d'un user
     $theuser = getoneuser($username);
-    // Permet de hacher le mot de passe
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-    if (password_verify($password, $hash)) {
-        // Cette boucle connecte le user utilisé si le nom d'utilisateur et le mot de passe corresspond au fichier
-        if ($theuser['username'] == $username && $theuser['employe']) {
-            $_SESSION['username'] = $theuser['username'];
-            require_once "view/home.php";
-        } else {
-            $username = null;
-            require_once 'view/login.php';
-        }
+
+    if (password_verify($password, $theuser['password'])) {
+
+            $_SESSION['username'] = $theuser['firstname'];
+            home();
+    } else {
+        require_once 'view/login.php';
     }
 }
 
@@ -65,7 +61,7 @@ function connect($username, $password)
 function disconnect()
 {
     unset($_SESSION['username']);
-    require_once 'view/login.php';
+    home();
 }
 
 // redirige à la vue détails

@@ -11,6 +11,7 @@ require "controler/controler.php";
 $action = $_GET['action'];
 extract($_POST); // $username, $password
 
+
 // Fonction déclancher selon l'action faite
 switch ($action) {
     case 'displaySnows':

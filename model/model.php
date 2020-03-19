@@ -48,7 +48,7 @@ function getSnows()
 }
 
 // Retourne le bon user s'il a le bon email et mdp par rapport a son email ou il retourne null
-function getUsersByEmail()
+function getUsers()
 {
     // TODO Ecrire le code pour récupérer les users dans un tableau de tableaux associatifs
     try {
@@ -65,15 +65,31 @@ function getUsersByEmail()
     }
 }
 
-$users = getUsers();
-
-
-foreach ($users as $user)
+function updatePassword()
 {
-    $hash = password_hash($user['firstname'],PASSWORD_DEFAULT);
-    echo $user['firstname']." => $hash \n";
-    // TODO Ecrire le code pour mettre à jour le mot de passe dans la base de données avec $hash
+    $users = getUsers();
+    foreach ($users as $user)
+    {
+        $hash = password_hash($user['firstname'],PASSWORD_DEFAULT);
+        //echo $user['firstname']." => $hash \n";
+        // TODO Ecrire le code pour mettre à jour le mot de passe dans la base de données avec $hash
 
+        $id = $user['id'];
+        try
+        {
+            $dbh = getPDO();
+            $query = "UPDATE users SET password ='$hash' WHERE id = $id";
+            $statement = $dbh->prepare($query);
+            $statement -> execute();
+            $queryResult =$statement->fetchAll();
+            var_dump($queryResult);
+            $dbh = null;
+        }catch (PDOException $e)
+        {
+            print 'Error!:'.$e->getMessage().'<br/>';
+            return null;
+        }
+    }
 }
 
 // Permet de trouver un utilisateur avec son username
@@ -82,7 +98,7 @@ function getoneuser($username)
     $users = getUsers();
     // Prends la valeur du nom et la stocke dans une variable
     foreach ($users as $user) {
-        if ($user["username"] == $username) {
+        if ($user["firstname"] == $username) {
             return $user;
         }
     }
