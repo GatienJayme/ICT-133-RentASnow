@@ -105,17 +105,42 @@ function getoneuser($username)
     return null;
 }
 
-// Trouver l'id du snowboard
-function getonesnow($listsnow)
+
+function detailsofsnow()
 {
-    $snows = getSnows();
-    $listsnow['id'] = $_GET['listsnow'];
-    foreach ($snows as $snow) {
-        if ($snow["id"] == $listsnow['id']) {
-            $listsnow = $snow;
-        }
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT snows.code, snows.length, snows.state, snows.available, snowtypes.photo,
+                    snowtypes.pricenew, snowtypes.pricegood, snowtypes.priceold
+                    FROM snows
+                    LEFT JOIN snowtypes 
+                    ON snows.snowtype_id = snowtypes.id';
+        $statement = $dbh->prepare($query); // prepare query
+        $statement->execute(); // execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
     }
-    return $listsnow;
+}
+
+// Trouver l'id du snowboard
+function getonesnow($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT snowtypes.model from snowtypes where model = :id';
+        $statement = $dbh->prepare($query); // prepare query
+        $statement->execute(); // execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 }
 
 // Permet de modifier les informations d'un snowboard

@@ -14,24 +14,50 @@ $title = "RentASnow - Details";
     <h1>Les détails des snowboards</h1>
     <div class="row mt-4">
         <table border="1px">
+                <tr class="text-center">
+                    <th>
+                        Code
+                    </th>
+                    <th>
+                        Longueur
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Disponible
+                    </th>
+                    <th>
+                        Nouveau prix
+                    </th>
+                    <th>
+                        Bon prix
+                    </th>
+                    <th>
+                        Ancien prix
+                    </th>
+                </tr>
             <tr>
                 <td>
-                    <div class="col-2"><?= $thesnow['modele'] ?></div>
+                    <div class="col-2"><?= $thesnow['code'] ?></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $thesnow['marque'] ?></div>
+                    <div class="col-2"><?= $thesnow['length'] ?></div>
                 </td>
                 <td>
-                    <div class="col-lg-10 col-md-5"><img src="view/images/<?= $thesnow['bigimage'] ?>"></div>
+                    <div class="col-lg-10 col-md-5"><img src="view/images/<?= $thesnow['photo'] ?>"></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $thesnow['dateretour'] ?></div>
+                    <div class="col-2"><?= $thesnow['available'] ?></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $thesnow['disponible'] ?></div>
+                    <div class="col-2"><?= $thesnow['pricenew'] ?></div>
                 </td>
                 <td>
-                    <div class="col-2"><?= $thesnow['details'] ?></div>
+                    <div class="col-2"><?= $thesnow['pricegood'] ?></div>
+                </td>
+                <td>
+                    <div class="col-2"><?= $thesnow['priceold'] ?></div>
                 </td>
                 <td>
                     <?php if ($_SESSION['employe'] == true) { ?>
