@@ -12,7 +12,7 @@ function getPDO()
     return $dbh;
 }
 
-// Traduit les données du news.json
+// Permet d'afficher les news avec le nom de l'auteur
 function getNews()
 {
     try {
@@ -30,7 +30,7 @@ function getNews()
     }
 }
 
-// Traduit les données du listofsnowboard.json
+// Permet d'afficher la liste de snowboard
 function getSnows()
 {
     try {
@@ -39,6 +39,22 @@ function getSnows()
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+function getSnow($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM snowtypes where id='.$id;
+        $statement = $dbh->prepare($query); // prepare query
+        $statement->execute(); // execute query
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;
         return $queryResult;
     } catch (PDOException $e) {
@@ -68,25 +84,22 @@ function getUsers()
 function updatePassword()
 {
     $users = getUsers();
-    foreach ($users as $user)
-    {
-        $hash = password_hash($user['firstname'],PASSWORD_DEFAULT);
+    foreach ($users as $user) {
+        $hash = password_hash($user['firstname'], PASSWORD_DEFAULT);
         //echo $user['firstname']." => $hash \n";
         // TODO Ecrire le code pour mettre à jour le mot de passe dans la base de données avec $hash
 
         $id = $user['id'];
-        try
-        {
+        try {
             $dbh = getPDO();
             $query = "UPDATE users SET password ='$hash' WHERE id = $id";
             $statement = $dbh->prepare($query);
-            $statement -> execute();
-            $queryResult =$statement->fetchAll();
+            $statement->execute();
+            $queryResult = $statement->fetchAll();
             var_dump($queryResult);
             $dbh = null;
-        }catch (PDOException $e)
-        {
-            print 'Error!:'.$e->getMessage().'<br/>';
+        } catch (PDOException $e) {
+            print 'Error!:' . $e->getMessage() . '<br/>';
             return null;
         }
     }
@@ -105,18 +118,18 @@ function getoneuser($username)
     return null;
 }
 
-
-function detailsofsnow()
+// Permet de rechercher la liste de snowboards concrets identifiés par le model
+function getSnowsOfTheModel($model)
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT snows.code, snows.length, snows.state, snows.available, snowtypes.photo,
-                    snowtypes.pricenew, snowtypes.pricegood, snowtypes.priceold
+        $query = 'SELECT snows.code, snows.length, snows.state, snows.available, snowtypes.model
                     FROM snows
                     LEFT JOIN snowtypes 
-                    ON snows.snowtype_id = snowtypes.id';
+                    ON snows.snowtype_id = snowtypes.id
+				    WHERE snowtypes.model=:model';
         $statement = $dbh->prepare($query); // prepare query
-        $statement->execute(); // execute query
+        $statement->execute(['model' => $model]); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;
         return $queryResult;
@@ -126,13 +139,35 @@ function detailsofsnow()
     }
 }
 
-// Trouver l'id du snowboard
-function getonesnow($id)
+// Retourne les types d'une liste pour chaque snowboards
+function getSnowType($tri)
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT snowtypes.model from snowtypes where model = :id';
+        // pas correcte
+        $query = 'SELECT snowtypes.brand, COUNT(id), snowtypes.description, snowtypes.pricenew, 
+                    snowtypes.pricegood, snowtypes.priceold
+                    from snowtypes
+                    GROUP BY model';
         $statement = $dbh->prepare($query); // prepare query
+        $statement->execute(); // execute query
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+// Retourne la liste des snows d'un type donné
+function getSnowsOfType($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * from snows where snowtypes_id=:id and state in (1,2,3) order by length';
+        $statement = $dbh->prepare($query); // prepare query
+        // execute(['tid' => $type]);
         $statement->execute(); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;

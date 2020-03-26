@@ -8,9 +8,8 @@ session_start();
 
 require "controler/controler.php";
 
-$action = $_GET['action'];
+extract($_GET); // $action, $model
 extract($_POST); // $username, $password
-
 
 // Fonction déclancher selon l'action faite
 switch ($action) {
@@ -18,7 +17,7 @@ switch ($action) {
         snows();
         break;
     case 'detailsnow':
-        details();
+        details($model);
         break;
     case'connect':
         if (isset($username, $password)) {
@@ -35,7 +34,7 @@ switch ($action) {
         louer();
         break;
     case 'delete':
-        $id = $_GET['listsnow'];
+        $id = $_GET['id'];
         deletesnowboard($id);
         break;
     case 'update':

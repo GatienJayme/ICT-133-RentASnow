@@ -30,10 +30,11 @@ function snows()
 
 
 // Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des détails
-function details()
+function details($model)
 {
-    $thesnow = getonesnow($id);
-    $listofdetailsnow = detailsofsnow();
+    $SnowsOfTheModel = getSnowsOfTheModel($model);
+
+
     foreach ($listofdetailsnow as $i => $snow) {
         $photo = $snow['photo']; // B126.jpg
         $point = '.';
@@ -41,6 +42,7 @@ function details()
         $extractphoto = substr($photo, 0, $pospoint); // B126
         $extractbigphoto = $extractphoto . ".jpg";
         $listofdetailsnow[$i]['photo'] = $extractbigphoto;
+        var_dump($listofdetailsnow[$i]['photo']);
     }
     require_once 'view/details.php';
 }
