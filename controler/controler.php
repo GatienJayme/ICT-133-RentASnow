@@ -14,11 +14,11 @@ function home()
 }
 
 // Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des snowboards
-function snows()
+function snows($id)
 {
     $snows = getSnows();
 
-
+    // Rechercher le nom de l'image puis enregistre la valeur dans chaque snow
     foreach ($snows as $i => $snow) {
         $photo = $snow['photo']; // B126.jpg
         $point = '.';
@@ -34,17 +34,10 @@ function snows()
 // Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des détails
 function details($id)
 {
-    $SnowsById = getSnowsForRealById($id);
 
-    foreach ($listofdetailsnow as $i => $snow) {
-        $photo = $snow['photo']; // B126.jpg
-        $point = '.';
-        $pospoint = strpos($photo, $point); // pos du point
-        $extractphoto = substr($photo, 0, $pospoint); // B126
-        $extractbigphoto = $extractphoto . ".jpg";
-        $listofdetailsnow[$i]['photo'] = $extractbigphoto;
-    }
-    require_once 'view/details.php';
+    //$SnowsById = getSnowsForRealById($id);
+    $listofdetailsnow = getSnowsForAbstract($id);
+    require 'view/details.php';
 }
 
 // Redirige à la vue du login

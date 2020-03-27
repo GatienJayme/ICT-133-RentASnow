@@ -14,7 +14,7 @@ extract($_POST); // $username, $password
 // Fonction déclancher selon l'action faite
 switch ($action) {
     case 'displaySnows':
-        snows();
+        snows($id);
         break;
     case 'detailSnow':
         details($id);

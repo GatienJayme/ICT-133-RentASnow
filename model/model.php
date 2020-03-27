@@ -35,7 +35,7 @@ function getSnows()
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT snowtypes.brand, snowtypes.model, snowtypes.photo FROM snowtypes';
+        $query = 'SELECT snowtypes.id, snowtypes.brand, snowtypes.model, snowtypes.photo FROM snowtypes';
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
@@ -139,18 +139,19 @@ function getSnowsForRealById($id)
 }
 
 // Retourne les types d'une liste pour chaque snowboards
-function getSnowsForAbstract($tri)
+function getSnowsForAbstract($id)
 {
     try {
         $dbh = getPDO();
-        // pas correcte
-        $query = 'SELECT snowtypes.brand, snowtypes.model, snows.available, snowtypes.pricenew, 
-                    snowtypes.pricegood, snowtypes.priceold
+        $query = 'SELECT snowtypes.brand, snowtypes.model, COUNT(snows.available), snows.available, snowtypes.pricenew, 
+                    snowtypes.pricegood, snowtypes.priceold, snowtypes.photo
                     FROM snowtypes
                     INNER JOIN snows
-                    ON snows.snowtype_id = snowtypes.id';
+                    ON snows.snowtype_id = snowtypes.id
+                    where snowtypes.id =:id
+                    GROUP BY snows.available';
         $statement = $dbh->prepare($query); // prepare query
-        $statement->execute(); // execute query
+        $statement->execute(['id' => $id]); // execute query
         $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;
         return $queryResult;
