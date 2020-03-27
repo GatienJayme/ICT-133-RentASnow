@@ -35,7 +35,7 @@ $title = "RentASnow - Snowboards";
                 <img src="view/images/<?= $snow['smallphoto'] ?>">
             </td>
             <td>
-                <button><a href="index.php?action=detailsnow&model=<?= $snow['model'] ?>">Détails</a></button>
+                <button><a href="index.php?action=detailSnow&id=<?= $snow['id'] ?>">Détails</a></button>
             </td>
             <td>
                 <button><a href="index.php?action=louer">Louer</a></button>

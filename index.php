@@ -8,7 +8,7 @@ session_start();
 
 require "controler/controler.php";
 
-extract($_GET); // $action, $model
+extract($_GET); // $action, $id
 extract($_POST); // $username, $password
 
 // Fonction déclancher selon l'action faite
@@ -16,8 +16,8 @@ switch ($action) {
     case 'displaySnows':
         snows();
         break;
-    case 'detailsnow':
-        details($model);
+    case 'detailSnow':
+        details($id);
         break;
     case'connect':
         if (isset($username, $password)) {

@@ -30,7 +30,7 @@ function getNews()
     }
 }
 
-// Permet d'afficher la liste de snowboard
+// Permet de rechercher la liste de snowboard
 function getSnows()
 {
     try {
@@ -88,7 +88,6 @@ function updatePassword()
         $hash = password_hash($user['firstname'], PASSWORD_DEFAULT);
         //echo $user['firstname']." => $hash \n";
         // TODO Ecrire le code pour mettre à jour le mot de passe dans la base de données avec $hash
-
         $id = $user['id'];
         try {
             $dbh = getPDO();
@@ -118,18 +117,18 @@ function getoneuser($username)
     return null;
 }
 
-// Permet de rechercher la liste de snowboards concrets identifiés par le model
-function getSnowsOfTheModel($model)
+// Permet de rechercher la liste de snowboards concrets identifiés par l'id
+function getSnowsForRealById($id)
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT snows.code, snows.length, snows.state, snows.available, snowtypes.model
+        $query = 'SELECT snows.code, snows.length, snows.state, snows.available
                     FROM snows
-                    LEFT JOIN snowtypes 
+                    INNER JOIN snowtypes
                     ON snows.snowtype_id = snowtypes.id
-				    WHERE snowtypes.model=:model';
+				    WHERE snowtypes.id=:id';
         $statement = $dbh->prepare($query); // prepare query
-        $statement->execute(['model' => $model]); // execute query
+        $statement->execute(['id' => $id]); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;
         return $queryResult;
@@ -140,15 +139,16 @@ function getSnowsOfTheModel($model)
 }
 
 // Retourne les types d'une liste pour chaque snowboards
-function getSnowType($tri)
+function getSnowsForAbstract($tri)
 {
     try {
         $dbh = getPDO();
         // pas correcte
-        $query = 'SELECT snowtypes.brand, COUNT(id), snowtypes.description, snowtypes.pricenew, 
+        $query = 'SELECT snowtypes.brand, snowtypes.model, snows.available, snowtypes.pricenew, 
                     snowtypes.pricegood, snowtypes.priceold
-                    from snowtypes
-                    GROUP BY model';
+                    FROM snowtypes
+                    INNER JOIN snows
+                    ON snows.snowtype_id = snowtypes.id';
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(); // execute query
         $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
