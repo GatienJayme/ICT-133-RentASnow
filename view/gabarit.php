@@ -31,11 +31,12 @@
     <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
 
     <link href="css/subtlepatterns/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="js/rent.js"></script>
-</head>
+    <script src="js/gabarit.js"></script>
 <body id="pageBody">
 
 <div id="divBoxed" class="container">

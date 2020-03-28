@@ -120,17 +120,18 @@ function getoneuser($username)
 // Permet de rechercher la liste de snowboards concrets identifiés par l'id
 function getSnowsForRealById($id)
 {
+    require '.const.php';
     try {
         $dbh = getPDO();
-        $query = 'SELECT snows.code, snows.length, snows.state, snows.available
-                    FROM snows
+        $query = 'SELECT * FROM snows 
                     INNER JOIN snowtypes
-                    ON snows.snowtype_id = snowtypes.id
-				    WHERE snowtypes.id=:id';
+                    ON snowtype_id = snowtypes.id 
+                    WHERE snows.id=:id';
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(['id' => $id]); // execute query
-        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;
+        if($debug) var_dump($queryResult);
         return $queryResult;
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
@@ -166,9 +167,9 @@ function getSnowsOfType($id)
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT * from snows where snowtypes_id=:id and state in (1,2,3) order by length';
+        $query = 'SELECT * from snows where snowtype_id=:id and state in (1,2,3) order by length';
         $statement = $dbh->prepare($query); // prepare query
-        // execute(['tid' => $type]);
+        $statement->execute(['id' => $id]);
         $statement->execute(); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;

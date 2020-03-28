@@ -1,21 +1,23 @@
 <?php
-function gettextstatte()
+function getTextState($state)
 {
+    $state += 0;
     switch ($state) {
         case 1:
-            'Neuf';
+            return 'Neuf';
             break;
         case 2:
-            'Usage';
+            return 'Usagé';
             break;
         case 3:
-            'Vieux';
+            return 'Vieux';
             break;
         case 4:
-            'Mort';
+            return 'Mort';
             break;
-        default :
-            'Null';
+        default:
+            return '???';
+            break;
     }
 }
 

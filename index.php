@@ -19,6 +19,9 @@ switch ($action) {
     case 'detailSnow':
         details($id);
         break;
+    case 'detailRealSnow':
+        RealDetails($id);
+        break;
     case'connect':
         if (isset($username, $password)) {
             connect($username, $password);

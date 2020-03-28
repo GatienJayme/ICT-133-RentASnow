@@ -6,8 +6,7 @@
 */
 ob_start();
 $title = "RentASnow - Details";
-?>
-<?php
+require_once 'view/helpers.php';
 ?>
 <!-- ________ details _____________-->
 <div class="span12">
@@ -17,9 +16,6 @@ $title = "RentASnow - Details";
             <tr class="text-center">
                 <th>
                     Image
-                </th>
-                <th>
-                    Etat
                 </th>
                 <th>
                     Disponible
@@ -40,9 +36,6 @@ $title = "RentASnow - Details";
                     </div>
                 </td>
                 <td>
-                    <div class="col-2"<?= $listofdetailsnow['state'] ?>></div>
-                </td>
-                <td>
                     <!-- opérateur ternaire booleen-->
                     <div class="col-2"><?= ($listofdetailsnow['available'] == 1) ? 'Oui' : 'Non' ?></div>
                 </td>
@@ -56,13 +49,6 @@ $title = "RentASnow - Details";
                     <div class="col-2"><?= $listofdetailsnow['priceold'] ?></div>
                 </td>
                 <td>
-                    <!--<div>
-                            <?php // if(count($snows) > 0) { ?>
-                                <h4>Nous avons <? // = count($snows) ?> de snows de ce type</h4>
-                            <?php // } else {?>
-                                <h4>Nous n'avons malheureusement aucun snow de ce type</h4>
-                            <?php // }?>
-                        </div>-->
                     <?php if ($_SESSION['employe'] == true) { ?>
                         <br> <br>
                         <button><a href="index.php?action=delete">Supprimer</a></button>
@@ -80,6 +66,30 @@ $title = "RentASnow - Details";
             </tr>
         </table>
     </div>
+</div>
+<div>
+    <br>
+    <?php if(count($Snows) > 0) { ?>
+        <h4>Nous avons <?= count($Snows) ?> de snows de ce type</h4>
+        <table class="table">
+            <tr>
+                <th>Code</th>
+                <th>Taille</th>
+                <th>Etat</th>
+                <th>Disponible</th>
+            </tr>
+            <?php foreach($Snows as $Snow) {?>
+                <tr class="clickable" data-href="?action=detailRealSnow&id=<?= $Snow['id']?>">
+                    <th><?= $Snow['code'] ?></th>
+                    <th><?= $Snow['length'] ?></th>
+                    <th><?= getTextState($Snow['state'])?></th>
+                    <th><?= ($Snow['available'] == 1) ? 'Oui' : 'Non' ?></th>
+                </tr>
+            <?php }?>
+        </table>
+    <?php } else {?>
+        <h4>Nous n'avons malheureusement aucun snow de ce type</h4>
+    <?php }?>
 </div>
 <?php
 $content = ob_get_clean();

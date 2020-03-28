@@ -34,10 +34,15 @@ function snows($id)
 // Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des détails
 function details($id)
 {
-
-    //$SnowsById = getSnowsForRealById($id);
+    $Snows = getSnowsOfType($id);
     $listofdetailsnow = getSnowsForAbstract($id);
     require 'view/details.php';
+}
+
+function RealDetails($id)
+{
+    $Snow = getSnowsForRealById($id);
+    require 'view/detailRealSnow.php';
 }
 
 // Redirige à la vue du login
