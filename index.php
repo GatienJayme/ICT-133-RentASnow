@@ -6,6 +6,7 @@
 */
 session_start();
 
+require 'view/helpers.php';
 require "controler/controler.php";
 
 extract($_GET); // $action, $id

@@ -55,13 +55,14 @@ function login()
 function connect($username, $password)
 {
     // variable utiliser pour stocker les valeurs d'un user
-    $theuser = getoneuser($username);
-
+    $theuser = getoneuserbyusername($username);
     if (password_verify($password, $theuser['password'])) {
-
             $_SESSION['username'] = $theuser['firstname'];
+            $_SESSION['flashmessage'] = 'Bienvenue '.$theuser['firstname'];
             home();
     } else {
+        unset($_SESSION['username']);
+        $_SESSION['flashmessage'] = "Ton mot de passe ou ton nom d'utilisateur est faux !!!";
         require_once 'view/login.php';
     }
 }

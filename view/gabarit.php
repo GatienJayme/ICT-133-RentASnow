@@ -73,6 +73,7 @@
             <div class="divPanel notop page-content">
                 <div class="row-fluid">
                     <div class="span12" id="divMain">
+                        <?= getFlashMessage() ?>
                         <?= $content; ?>
                     </div>
                 </div>

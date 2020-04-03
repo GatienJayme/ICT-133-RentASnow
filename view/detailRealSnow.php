@@ -6,7 +6,6 @@
 */
 ob_start();
 $title = "RentASnow - Details";
-require_once 'view/helpers.php';
 ?>
 <!-- ________ details _____________-->
 <div class="span12">

@@ -47,22 +47,6 @@ function getSnows()
     }
 }
 
-function getSnow($id)
-{
-    try {
-        $dbh = getPDO();
-        $query = 'SELECT * FROM snowtypes where id='.$id;
-        $statement = $dbh->prepare($query); // prepare query
-        $statement->execute(); // execute query
-        $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
-        $dbh = null;
-        return $queryResult;
-    } catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage() . "<br/>";
-        return null;
-    }
-}
-
 // Retourne le bon user s'il a le bon email et mdp par rapport a son email ou il retourne null
 function getUsers()
 {
@@ -87,7 +71,6 @@ function updatePassword()
     foreach ($users as $user) {
         $hash = password_hash($user['firstname'], PASSWORD_DEFAULT);
         //echo $user['firstname']." => $hash \n";
-        // TODO Ecrire le code pour mettre à jour le mot de passe dans la base de données avec $hash
         $id = $user['id'];
         try {
             $dbh = getPDO();
@@ -105,16 +88,20 @@ function updatePassword()
 }
 
 // Permet de trouver un utilisateur avec son username
-function getoneuser($username)
+function getoneuserbyusername($username)
 {
-    $users = getUsers();
-    // Prends la valeur du nom et la stocke dans une variable
-    foreach ($users as $user) {
-        if ($user["firstname"] == $username) {
-            return $user;
-        }
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM users WHERE firstname=:username';
+        $statement = $dbh->prepare($query);
+        $statement->execute(['username' => $username]);
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print 'Error!:' . $e->getMessage() . '<br/>';
+        return null;
     }
-    return null;
 }
 
 // Permet de rechercher la liste de snowboards concrets identifiés par l'id
@@ -131,7 +118,7 @@ function getSnowsForRealById($id)
         $statement->execute(['id' => $id]); // execute query
         $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;
-        if($debug) var_dump($queryResult);
+        if ($debug) var_dump($queryResult);
         return $queryResult;
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
