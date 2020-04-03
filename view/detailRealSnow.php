@@ -1,5 +1,5 @@
 <?php
-/*  Program: Rent a snow view details
+/*  Program: Rent a snow view Real details
     Author: Gatien Jayme
     Date: 16.01.2020
     Version: 1.0
@@ -21,10 +21,8 @@ $title = "RentASnow - Details";
                     <?php if ($_SESSION['employe'] == true) { ?>
                         <br> <br>
                         <button><a href="index.php?action=delete">Supprimer</a></button>
-
                         <br> <br>
                         <button><a href="index.php?action=update">Modifier</a></button>
-
                         <br> <br> <br> <br>
                     <?php } ?>
                     <label for="Rent">Louer</label>
@@ -56,6 +54,7 @@ $title = "RentASnow - Details";
             <th><?= ($Snow['available'] == 1) ? 'Oui' : 'Non' ?></th>
         </tr>
     </table>
+    <a href="?action=editSnowDetails&snowid=<?= $snowid ?>" class="btn btn-primary text-center">Modifier</a>
 </div>
 <?php
 $content = ob_get_clean();

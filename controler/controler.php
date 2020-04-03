@@ -30,7 +30,6 @@ function snows($id)
     require_once 'view/snows.php';
 }
 
-
 // Va chercher les données dans le model les stockent dans une variable et renvoit à la vue des détails
 function details($id)
 {
@@ -39,10 +38,16 @@ function details($id)
     require 'view/details.php';
 }
 
-function RealDetails($id)
+function RealDetails($snowid)
 {
-    $Snow = getSnowsForRealById($id);
+    $Snow = getSnowsForRealById($snowid);
     require 'view/detailRealSnow.php';
+}
+
+function editDetailRealSnow($snowid)
+{
+    $Snow = getSnowsForRealById($snowid);
+    require 'view/editDetailRealSnow.php';
 }
 
 // Redirige à la vue du login

@@ -9,7 +9,7 @@ session_start();
 require 'view/helpers.php';
 require "controler/controler.php";
 
-extract($_GET); // $action, $id
+extract($_GET); // $action, $id, $snowid
 extract($_POST); // $username, $password
 
 // Fonction déclancher selon l'action faite
@@ -22,6 +22,15 @@ switch ($action) {
         break;
     case 'detailRealSnow':
         RealDetails($id);
+        break;
+    case 'editSnowDetails':
+        $snowid = $_GET['snowid'];
+        editDetailRealSnow($snowid);
+        break;
+    case 'saveSnowDetails':
+        $_SESSION['flashmessage'] = 'OK';
+        $snowid = $_POST['snowid'];
+        RealDetails($snowid);
         break;
     case'connect':
         if (isset($username, $password)) {
