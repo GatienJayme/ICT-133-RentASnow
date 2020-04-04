@@ -157,10 +157,30 @@ function getSnowsOfType($id)
         $query = 'SELECT * from snows where snowtype_id=:id and state in (1,2,3) order by length';
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(['id' => $id]);
-        $statement->execute(); // execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC); // prepare result for client
         $dbh = null;
         return $queryResult;
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+// Retourne la liste des snows d'un type donné
+function updateSnow($snowdata)
+{
+    if(isset($snowdata['available'])) {
+        $snowdata['available'] = 1;
+    }
+    else {
+        $snowdata['available'] = 0;
+    }
+    try {
+        $dbh = getPDO();
+        $query = "UPDATE snows SET code= :code, length= :length, state= :state, available= :available where id= :snowid";
+        $statement = $dbh->prepare($query); // prepare query
+        $statement->execute($snowdata); // execute query
+        $dbh = null;
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
         return null;

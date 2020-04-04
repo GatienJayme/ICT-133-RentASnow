@@ -29,6 +29,7 @@ switch ($action) {
         break;
     case 'saveSnowDetails':
         $_SESSION['flashmessage'] = 'OK';
+        updateSnow($_POST);
         $snowid = $_POST['snowid'];
         RealDetails($snowid);
         break;

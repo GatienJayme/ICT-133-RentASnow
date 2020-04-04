@@ -32,10 +32,9 @@ $title = "RentASnow - Details";
                 <th>Etat</th>
                 <td>
                     <select name="state">
-                        <option value="1" <?= ($Snow['state'] == 1) ? "selected" : "" ?>>Neuf</option>
-                        <option value="2" <?= ($Snow['state'] == 2) ? "selected" : "" ?>>Usagé</option>
-                        <option value="3" <?= ($Snow['state'] == 3) ? "selected" : "" ?>>Vieux</option>
-                        <option value="4" <?= ($Snow['state'] == 4) ? "selected" : "" ?>>Mort</option>
+                        <?php for($i=1;$i<=4;$i++) { ?>
+                            <option value="<?= $i ?>>" <?= ($Snow['state'] == $i) ? "selected" : "" ?>><?= getTextState($i)?></option>
+                        <?php } ?>
                     </select>
                 </td>
             </tr>
