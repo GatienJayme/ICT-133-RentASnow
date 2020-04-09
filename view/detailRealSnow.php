@@ -55,6 +55,9 @@ $title = "RentASnow - Details";
         </tr>
     </table>
     <a href="?action=editSnowDetails&snowid=<?= $snowid ?>" class="btn btn-primary text-center">Modifier</a>
+    <?php if ($Snow['available'] == 1) { ?>
+    <a href="?action=putInCart&snowid=<?= $snowid ?>" class="btn btn-success">Mettre dans le panier</a>
+    <?php } ?>
 </div>
 <?php
 $content = ob_get_clean();

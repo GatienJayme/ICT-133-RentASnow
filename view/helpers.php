@@ -32,4 +32,13 @@ function getTextState($state)
     }
 }
 
+function cartButton()
+{
+    if (!isset($_SESSION['cart'])) {
+        return "<a class='disabled'>Panier</a>";
+    } else {
+        return "<a href='?action=viewCart'>Panier</a>";
+    }
+}
+
 ?>

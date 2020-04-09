@@ -44,6 +44,20 @@ function RealDetails($snowid)
     require 'view/detailRealSnow.php';
 }
 
+function putInCart($snowid)
+{
+    $Snow = getSnowsForRealById($snowid); // Prend les details des snows
+    $_SESSION['cart'][] = $Snow;
+    withdraw($snowid); // met le snow non disponible
+    $_SESSION['flashmessage'] = 'le snowboard a été mis dans le panier';
+    return;
+}
+
+function rentSnows($cartContent) {
+    $rentid = createRent($_SESSION['user'] ['id']);
+    die($rentid);
+}
+
 function editDetailRealSnow($snowid)
 {
     $Snow = getSnowsForRealById($snowid);

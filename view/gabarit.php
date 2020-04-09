@@ -61,6 +61,7 @@
                         <?php if (isset($_SESSION['username'])) { ?>
                             <li><a href="index.php?action=logout">Déconnexion</a></li>
                             <?php echo "Connecté en tant que " . $_SESSION['username']; ?>
+                            <li><?= cartButton() ?></li>
                         <?php } else { ?>
                             <li><a href="index.php?action=login">Connexion</a></li>
                         <?php } ?>

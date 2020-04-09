@@ -87,6 +87,35 @@ function updatePassword()
     }
 }
 
+function withdraw($snowid) {
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE snows SET available = false WHERE id= :snowid';
+        $statement = $dbh->prepare($query);
+        $statement->execute(['snowid' => $snowid]);
+        $dbh = null;
+        return true;
+    } catch (PDOException $e) {
+        print 'Error!:' . $e->getMessage() . '<br/>';
+        $_SESSION['flashmessage'] = "Erreur lors de l'enregistrement";
+        return null;
+    }
+}
+
+function createRent($userid) {
+    try {
+        $dbh = getPDO();
+        $query = 'INSERT INTO rents (status, start_on, user_id) VALUES (:status, :date, :userid)';
+        $statement = $dbh->prepare($query);
+        $statement->execute(["status" => 'open', "date" => '2020-02-02', "userid" => $userid]);
+        return $dbh->lastInsertId();
+    } catch (PDOException $e) {
+        print 'Error!:' . $e->getMessage() . '<br/>';
+        $_SESSION['flashmessage'] = "Erreur lors de l'enregistrement";
+        return null;
+    }
+}
+
 // Permet de trouver un utilisateur avec son username
 function getoneuserbyusername($username)
 {
