@@ -58,9 +58,9 @@
                         <!-- On commence par afficher les boutons qui s'afficheront, peu importe les événements-->
                         <li><a href="index.php?action=home">Home</a></li>
                         <li><a href="index.php?action=displaySnows">Snows</a></li>
-                        <?php if (isset($_SESSION['username'])) { ?>
+                        <?php if (isset($_SESSION['user'])) { ?>
                             <li><a href="index.php?action=logout">Déconnexion</a></li>
-                            <?php echo "Connecté en tant que " . $_SESSION['username']; ?>
+                            <?php echo "Connecté en tant que " . $_SESSION['user']['firstname']; ?>
                             <li><?= cartButton() ?></li>
                         <?php } else { ?>
                             <li><a href="index.php?action=login">Connexion</a></li>

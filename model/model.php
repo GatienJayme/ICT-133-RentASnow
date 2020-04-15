@@ -116,6 +116,20 @@ function createRent($userid) {
     }
 }
 
+function addSnowToRent($Snow, $rentid) {
+    try {
+        $dbh = getPDO();
+        $query = 'INSERT INTO rentsdetails (snow_id, rent_id, nbDays, status) VALUES (:snow_id, :rent_id, :nbDays, :status)';
+        $statement = $dbh->prepare($query);
+        $statement->execute(["snow_id" => $Snow['snowid'], "rent_id" => $rentid, "nbDays" => 30, "status" => 'open']);
+        return $dbh->lastInsertId();
+    } catch (PDOException $e) {
+        print 'Error!:' . $e->getMessage() . '<br/>';
+        $_SESSION['flashmessage'] = "Erreur lors de l'enregistrement";
+        return null;
+    }
+}
+
 // Permet de trouver un utilisateur avec son username
 function getoneuserbyusername($username)
 {
@@ -139,7 +153,7 @@ function getSnowsForRealById($id)
     require '.const.php';
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM snows 
+        $query = 'SELECT *, snows.id as snowid FROM snows 
                     INNER JOIN snowtypes
                     ON snowtype_id = snowtypes.id 
                     WHERE snows.id=:id';

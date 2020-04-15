@@ -1,1 +1,72 @@
-{"0":{"id":"1","brand":"Burton","model":"B101","photo":"B101.jpg"},"1":{"id":"2","brand":"Free Thinker","model":"B126","photo":"B126.jpg"},"2":{"id":"3","brand":"Burton","model":"B327","photo":"B327.jpg"},"3":{"id":"4","brand":"Prior","model":"K067","photo":"K067.jpg"},"4":{"id":"5","brand":"KR","model":"K266","photo":"K266.jpg"},"5":{"id":"6","brand":"KR","model":"K409","photo":"K409.jpg"},"6":{"id":"7","brand":"NSnow","model":"N100","photo":"N100.jpg"},"7":{"id":"8","brand":"NSnow","model":"N754","photo":"N754.jpg"},"8":{"id":"9","brand":"Prior","model":"P067","photo":"P067.jpg"},"9":{"id":"10","brand":"Prior","model":"P165","photo":"P165.jpg"},"11":{"id":11,"model":null,"marque":null,"bigimage":"K226.jpg","smallimage":"B126_small.jpg","dateretour":"2020.08.9","disponible":"Plus pr\u00e9sent","details":null}}
+{
+  "0": {
+    "id": "1",
+    "brand": "Burton",
+    "model": "B101",
+    "photo": "B101.jpg"
+  },
+  "1": {
+    "id": "2",
+    "brand": "Free Thinker",
+    "model": "B126",
+    "photo": "B126.jpg"
+  },
+  "2": {
+    "id": "3",
+    "brand": "Burton",
+    "model": "B327",
+    "photo": "B327.jpg"
+  },
+  "3": {
+    "id": "4",
+    "brand": "Prior",
+    "model": "K067",
+    "photo": "K067.jpg"
+  },
+  "4": {
+    "id": "5",
+    "brand": "KR",
+    "model": "K266",
+    "photo": "K266.jpg"
+  },
+  "5": {
+    "id": "6",
+    "brand": "KR",
+    "model": "K409",
+    "photo": "K409.jpg"
+  },
+  "6": {
+    "id": "7",
+    "brand": "NSnow",
+    "model": "N100",
+    "photo": "N100.jpg"
+  },
+  "7": {
+    "id": "8",
+    "brand": "NSnow",
+    "model": "N754",
+    "photo": "N754.jpg"
+  },
+  "8": {
+    "id": "9",
+    "brand": "Prior",
+    "model": "P067",
+    "photo": "P067.jpg"
+  },
+  "9": {
+    "id": "10",
+    "brand": "Prior",
+    "model": "P165",
+    "photo": "P165.jpg"
+  },
+  "11": {
+    "id": 11,
+    "model": null,
+    "marque": null,
+    "bigimage": "K226.jpg",
+    "smallimage": "B126_small.jpg",
+    "dateretour": "2020.08.9",
+    "disponible": "Plus pr\u00e9sent",
+    "details": null
+  }
+}

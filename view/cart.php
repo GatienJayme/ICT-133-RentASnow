@@ -25,7 +25,7 @@ $title = "RentASnow - Votre Panier";
             </tr>
             <?php }?>
         </table>
-    <a href="?action=rentSnows" class="btn btn-success">Louer</a>
+    <a href="?action=rentASnows" class="btn btn-success">Louer</a>
 </div>
 <?php
 $content = ob_get_clean();

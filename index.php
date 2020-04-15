@@ -30,9 +30,9 @@ switch ($action) {
         break;
     case 'viewCart':
         $cartContent = $_SESSION['cart'];
-        require_once 'view/cart.php';
+        viewCart($cartContent);
         break;
-    case 'rentSnows' :
+    case 'rentASnows' :
         $cartContent = $_SESSION['cart'];
         rentSnows($cartContent);
         break;

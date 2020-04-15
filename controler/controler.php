@@ -53,9 +53,23 @@ function putInCart($snowid)
     return;
 }
 
+function viewCart($cartContent) {
+    require_once 'view/cart.php';
+}
+
 function rentSnows($cartContent) {
-    $rentid = createRent($_SESSION['user'] ['id']);
-    die($rentid);
+    // Crée un enregistrment dans rents
+    $rentid = createRent($_SESSION['user']['id']);
+
+    foreach ($cartContent as $Snow) {
+        addSnowToRent($Snow, $rentid); // Ajoute les snowboards dans rentsdetails
+        }
+    // Vider le panier
+    unset($_SESSION['cart']);
+    // message de confirmation
+    $_SESSION['flashmessage'] = 'Votre location a été enregistré';
+    // Retourne à la liste de snows
+    snows($id);
 }
 
 function editDetailRealSnow($snowid)
@@ -76,11 +90,11 @@ function connect($username, $password)
     // variable utiliser pour stocker les valeurs d'un user
     $theuser = getoneuserbyusername($username);
     if (password_verify($password, $theuser['password'])) {
-            $_SESSION['username'] = $theuser['firstname'];
+            $_SESSION['user'] = $theuser;
             $_SESSION['flashmessage'] = 'Bienvenue '.$theuser['firstname'];
             home();
     } else {
-        unset($_SESSION['username']);
+        unset($_SESSION['user']);
         $_SESSION['flashmessage'] = "Ton mot de passe ou ton nom d'utilisateur est faux !!!";
         require_once 'view/login.php';
     }
@@ -89,7 +103,7 @@ function connect($username, $password)
 // Permet de déconnecter la personne connecté à sa session
 function disconnect()
 {
-    unset($_SESSION['username']);
+    unset($_SESSION['user']);
     home();
 }
 
