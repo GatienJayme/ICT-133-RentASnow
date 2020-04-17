@@ -10,7 +10,7 @@ require 'view/helpers.php';
 require "controler/controler.php";
 
 extract($_GET); // $action, $id, $snowid
-extract($_POST); // $username, $password
+extract($_POST); // $email, $password
 
 // Fonction déclancher selon l'action faite
 switch ($action) {
@@ -47,8 +47,8 @@ switch ($action) {
         RealDetails($snowid);
         break;
     case'connect':
-        if (isset($username, $password)) {
-            connect($username, $password);
+        if (isset($email, $password)) {
+            connect($email, $password);
         }
         break;
     case 'logout':

@@ -167,13 +167,13 @@ function addSnowToRent($Snow, $rentid) {
 }
 
 // Permet de trouver un utilisateur avec son username
-function getoneuserbyusername($username)
+function getoneuserbyemail($email)
 {
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM users WHERE firstname=:username';
+        $query = 'SELECT * FROM users WHERE email=:email';
         $statement = $dbh->prepare($query);
-        $statement->execute(['username' => $username]);
+        $statement->execute(['email' => $email]);
         $queryResult = $statement->fetch(PDO::FETCH_ASSOC);
         $dbh = null;
         return $queryResult;

@@ -15,8 +15,8 @@ $title = "RentASnow - Login";
         <form action="index.php?action=connect" method="post">
             <table id="compte">
                 <tr>
-                    <td><label for="Votre identifiant">Votre identifiant</label></td>
-                    <td><input type="text" name="username" required/></td>
+                    <td><label for="Votre email">Votre email</label></td>
+                    <td><input type="text" name="email" required/></td>
                 </tr>
                 <tr>
                     <td><label for="mdp"></label>Mot de passe</td>

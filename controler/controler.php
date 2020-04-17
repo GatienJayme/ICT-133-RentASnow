@@ -86,10 +86,10 @@ function login()
 }
 
 // Demande un nom d'utilisateur et un mot de passe s'ils sont corrects la session s'ouvre sinon le programme retourne rien
-function connect($username, $password)
+function connect($email, $password)
 {
     // variable utiliser pour stocker les valeurs d'un user
-    $theuser = getoneuserbyusername($username);
+    $theuser = getoneuserbyemail($email);
     if (password_verify($password, $theuser['password'])) {
             $_SESSION['user'] = $theuser;
             $_SESSION['flashmessage'] = 'Bienvenue '.$theuser['firstname'];
