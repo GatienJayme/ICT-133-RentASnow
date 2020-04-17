@@ -23,6 +23,10 @@ switch ($action) {
     case 'detailRealSnow':
         RealDetails($id);
         break;
+    case 'removeCart':
+        $snowid = $_GET['snowid'];
+        emptycart();
+        break;
     case 'putInCart':
         $snowid = $_GET['snowid'];
         putInCart($snowid);
@@ -41,8 +45,8 @@ switch ($action) {
         editDetailRealSnow($snowid);
         break;
     case 'saveSnowDetails':
-        $_SESSION['flashmessage'] = 'OK';
         updateSnow($_POST);
+        $_SESSION['flashmessage'] = 'Le changement a bien été réalisé';
         $snowid = $_POST['snowid'];
         RealDetails($snowid);
         break;

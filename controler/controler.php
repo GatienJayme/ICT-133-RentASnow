@@ -45,6 +45,16 @@ function RealDetails($snowid)
     require 'view/detailRealSnow.php';
 }
 
+function emptycart() {
+    foreach ($_SESSION['cart'] as $Snow)
+    {
+        cancel($Snow['id']);
+    }
+    unset($_SESSION['cart']);
+    $_SESSION['flashmessage'] = 'Votre location à bien été annulé';
+    snows($id);
+}
+
 function putInCart($snowid)
 {
     $Snow = getSnowsForRealById($snowid); // Prend les details des snows

@@ -90,7 +90,7 @@ function updatePassword()
 function cancel($snowid) {
     try {
         $dbh = getPDO();
-        $query = 'DELETE snows';
+        $query = 'UPDATE snows SET available = true WHERE id= :snowid';
         $statement = $dbh->prepare($query);
         $statement->execute(['snowid' => $snowid]);
         $dbh = null;
@@ -192,7 +192,7 @@ function getSnowsForRealById($id)
         $query = 'SELECT *, snows.id as snowid FROM snows 
                     INNER JOIN snowtypes
                     ON snowtype_id = snowtypes.id 
-                    WHERE snows.id=:id';
+                    WHERE snows.id= :id';
         $statement = $dbh->prepare($query); // prepare query
         $statement->execute(['id' => $id]); // execute query
         $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
