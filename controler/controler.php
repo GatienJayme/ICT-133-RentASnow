@@ -41,6 +41,7 @@ function details($id)
 function RealDetails($snowid)
 {
     $Snow = getSnowsForRealById($snowid);
+    $rents = getRentsOfSnow($snowid);
     require 'view/detailRealSnow.php';
 }
 

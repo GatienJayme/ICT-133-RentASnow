@@ -58,6 +58,29 @@ $title = "RentASnow - Details";
     <?php if ($Snow['available'] == 1) { ?>
     <a href="?action=putInCart&snowid=<?= $snowid ?>" class="btn btn-success">Mettre dans le panier</a>
     <?php } ?>
+
+    <?php if (count($rents) > 0) { ?>
+    <h4 class="mt-3">Historique des locations</h4>
+        <table class="table table-striped">
+            <tr>
+                <th>Par</th>
+                <th>Depuis le</th>
+                <th>Jours</th>
+                <th>Status</th>
+            </tr>
+            <?php foreach($rents as $rent) { ?>
+            <tr>
+                <td><?= $rent['firstname']?> <?= $rent['lastname']?></td>
+                <td><?= $rent['start_on']?></td>
+                <td><?= $rent['nbDays']?></td>
+                <td><?= $rent['status']?></td>
+            </tr>
+            <?php } ?>
+        </table>
+
+    <?php } else { ?>
+    <h4 class="mt-3">Ce snowboard n'a jamais été loué</h4>
+    <?php } ?>
 </div>
 <?php
 $content = ob_get_clean();

@@ -87,6 +87,21 @@ function updatePassword()
     }
 }
 
+function cancel($snowid) {
+    try {
+        $dbh = getPDO();
+        $query = 'DELETE snows';
+        $statement = $dbh->prepare($query);
+        $statement->execute(['snowid' => $snowid]);
+        $dbh = null;
+        return true;
+    } catch (PDOException $e) {
+        print 'Error!:' . $e->getMessage() . '<br/>';
+        $_SESSION['flashmessage'] = "Erreur lors de l'enregistrement";
+        return null;
+    }
+}
+
 function withdraw($snowid) {
     try {
         $dbh = getPDO();
@@ -95,6 +110,27 @@ function withdraw($snowid) {
         $statement->execute(['snowid' => $snowid]);
         $dbh = null;
         return true;
+    } catch (PDOException $e) {
+        print 'Error!:' . $e->getMessage() . '<br/>';
+        $_SESSION['flashmessage'] = "Erreur lors de l'enregistrement";
+        return null;
+    }
+}
+
+function getRentsOfSnow($id) {
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT firstname, lastname, start_on, nbDays, rents.status 
+                    FROM snows
+                    INNER JOIN rentsdetails ON snow_id=snows.id
+                    INNER JOIN rents ON rent_id = rents.id
+                    INNER JOIN users ON user_id=users.id
+                    WHERE snows.id=:id';
+        $statement = $dbh->prepare($query);
+        $statement->execute(['id' => $id]);
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $dbh = null;
+        return $queryResult;
     } catch (PDOException $e) {
         print 'Error!:' . $e->getMessage() . '<br/>';
         $_SESSION['flashmessage'] = "Erreur lors de l'enregistrement";
