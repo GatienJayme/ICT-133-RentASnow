@@ -46,9 +46,9 @@ function RealDetails($snowid)
 }
 
 function emptycart() {
-    foreach ($_SESSION['cart'] as $Snow)
+    foreach ($_SESSION['cart'] as $snow)
     {
-        cancel($Snow['id']);
+        cancel($snow['snowid']);
     }
     unset($_SESSION['cart']);
     $_SESSION['flashmessage'] = 'Votre location à bien été annulé';
