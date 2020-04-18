@@ -24,7 +24,6 @@ switch ($action) {
         RealDetails($id);
         break;
     case 'removeCart':
-        $snowid = $_GET['snowid'];
         emptycart();
         break;
     case 'putInCart':
@@ -60,22 +59,6 @@ switch ($action) {
         break;
     case 'login':
         login();
-        break;
-    case 'click':
-        louer();
-        break;
-    case 'delete':
-        $id = $_GET['id'];
-        deletesnowboard($id);
-        break;
-    case 'update':
-        updatesnowboard();
-        break;
-    case 'add':
-        $model = $_GET['snows'];
-        $marque = $_GET['snows'];
-        $details = $_GET['snows'];
-        addsnow($model, $marque, $details);
         break;
     default:
         home();

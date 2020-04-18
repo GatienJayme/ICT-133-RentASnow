@@ -60,7 +60,7 @@ function putInCart($snowid)
     $Snow = getSnowsForRealById($snowid); // Prend les details des snows
     $_SESSION['cart'][] = $Snow;
     withdraw($snowid); // met le snow non disponible
-    $_SESSION['flashmessage'] = 'le snowboard a été mis dans le panier';
+    $_SESSION['flashmessage'] = 'Le snowboard a été mis dans le panier';
     return;
 }
 
@@ -117,32 +117,4 @@ function disconnect()
     unset($_SESSION['user']);
     home();
 }
-
-// redirige à la vue détails
-function louer()
-{
-    require_once "view/details.php";
-}
-
-// ajoute un snowboard
-function addsnow($model, $marque, $details)
-{
-    $addsnowboard = add($model, $marque, $details);
-    require_once 'view/add.php';
-}
-
-// supprime un snowboard
-function deletesnowboard($id)
-{
-    $supprimer = delete($id);
-    louer();
-}
-
-// modifie un snowboard
-function updatesnowboard()
-{
-    $modifier = update();
-    louer();
-}
-
 ?>
