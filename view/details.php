@@ -48,7 +48,7 @@ $title = "RentASnow - Details";
                     <div class="col-2"><?= $listofdetailsnow['priceold'] ?></div>
                 </td>
                 <td>
-                    <?php if ($_SESSION['employe'] == true) { ?>
+                    <?php if ($_SESSION['admin'] == true) { ?>
                         <br> <br>
                         <button><a href="index.php?action=delete">Supprimer</a></button>
 
@@ -57,10 +57,7 @@ $title = "RentASnow - Details";
 
                         <br> <br> <br> <br>
                     <?php } ?>
-                    <label for="Rent">Louer</label>
-                    <input type="checkbox" name="rent">
                     <br> <br>
-                    <button name="cmdlouer"><a href="index.php?action=click">Louer</a></button>
                 </td>
             </tr>
         </table>

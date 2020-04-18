@@ -37,9 +37,6 @@ $title = "RentASnow - Snowboards";
             <td>
                 <button><a href="index.php?action=detailSnow&id=<?= $snow['id'] ?>">Détails</a></button>
             </td>
-            <td>
-                <button><a href="index.php?action=louer">Louer</a></button>
-            </td>
         <tr>
     </table>
 <?php } ?>

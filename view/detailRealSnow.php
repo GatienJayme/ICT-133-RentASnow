@@ -25,10 +25,7 @@ $title = "RentASnow - Details";
                         <button><a href="index.php?action=update">Modifier</a></button>
                         <br> <br> <br> <br>
                     <?php } ?>
-                    <label for="Rent">Louer</label>
-                    <input type="checkbox" name="rent">
                     <br> <br>
-                    <button name="cmdlouer"><a href="index.php?action=click">Louer</a></button>
                 </td>
             </tr>
         </table>
