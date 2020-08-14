@@ -1,7 +1,7 @@
 <?php
 /*  Program: Rent a snow view login
     Author: Gatien Jayme
-    Date: 16.01.2020
+    Date: 26.04.2020
     Version: 1.0
 */
 ob_start();

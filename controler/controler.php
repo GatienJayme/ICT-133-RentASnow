@@ -117,4 +117,18 @@ function disconnect()
     unset($_SESSION['user']);
     home();
 }
+
+function add($brand, $model) {
+    $addsnowboard = addOneSnow($model, $brand);
+    require_once 'view/addsnow.php';
+}
+
+function delete($snowid) {
+    $deleteOneSnow = deleteSnow($snowid);
+    unset($deleteOneSnow);
+}
+
+function update() {
+
+}
 ?>

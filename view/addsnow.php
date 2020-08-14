@@ -5,7 +5,7 @@
     Version: 1.0
 */
 ob_start();
-$title = "RentASnow - Login";
+$title = "RentASnow - Addsnow";
 ?>
     <div class="span12">
         <h1>Ajouter un snowboard</h1>
@@ -15,17 +15,12 @@ $title = "RentASnow - Login";
                     <tr>
                         <td><label for="model"></label>model</td>
                         <td><input type="text" name="model" required/></td>
-                        <?= $addsnowboard['model'] ?>
+                        <?= $addsnowboards['model'] ?>
                     </tr>
                     <tr>
                         <td><label for="marque"></label>marque</td>
-                        <td><input type="text" name="marque" required/></td>
-                        <?= $addsnowboard['brand'] ?>
-                    </tr>
-                    <tr>
-                        <td><label for="details"></label>details</td>
-                        <td><input type="text" name="details" required/></td>
-                        <?= $addsnowboard['description'] ?>
+                        <td><input type="text" name="brand" required/></td>
+                        <?= $addsnowboards['brand'] ?>
                     </tr>
                     <tr>
                         <td>

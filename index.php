@@ -6,10 +6,11 @@
 */
 session_start();
 
+
 require 'view/helpers.php';
 require "controler/controler.php";
 
-extract($_GET); // $action, $id, $snowid
+extract($_GET); // $action, $id, $snowid, $model, $brand, $details
 extract($_POST); // $email, $password
 
 // Fonction déclancher selon l'action faite
@@ -59,6 +60,17 @@ switch ($action) {
         break;
     case 'login':
         login();
+        break;
+    case 'add':
+        $brand = $_GET['brand'];
+        $model = $_GET['model'];
+        add($brand, $model);
+        break;
+    case 'delete':
+        delete($snowid);
+        break;
+    case 'update':
+        update();
         break;
     default:
         home();

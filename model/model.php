@@ -26,7 +26,6 @@ function select($query, $params, $manyRecords)
             $queryResult = $statement->fetch(PDO::FETCH_ASSOC); // prepare result for client
         }
         $dbh = null;
-        if ($debug) var_dump($queryResult);
         return $queryResult;
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
@@ -138,7 +137,7 @@ function updatePassword()
     foreach ($users as $user) {
         $hash = password_hash($user['firstname'], PASSWORD_DEFAULT);
         $id = $user['id'];
-        return execute("UPDATE users SET password ='$hash' WHERE id = :id", [$user['id'] => $id]);
+        execute("UPDATE users SET password ='$hash' WHERE id = :id", ['id' => $id]);
     }
     return null;
 }
@@ -164,6 +163,10 @@ function updateSnow($snowdata)
         $snowdata['available'] = 0;
     }
     return execute("UPDATE snows SET code= :code, length= :length, state= :state, available= :available where id= :snowid", $snowdata);
+}
+
+function deleteSnow($snowid) {
+    execute("DELETE from snowtypes where id= :snowid", ['snowid' => $snowid]);
 }
 
 // Refactorisation des insert pour que le code ne se répète pas identifié par la query et le paramètre
@@ -196,5 +199,11 @@ function addSnowToRent($Snow, $rentid)
     return insert('INSERT INTO rentsdetails (snow_id, rent_id, nbDays, status) 
                             VALUES (:snow_id, :rent_id, :nbDays, :status)',
         ["snow_id" => $Snow['snowid'], "rent_id" => $rentid, "nbDays" => 30, "status" => 'open']);
+}
+
+function addOneSnow($brand, $model) {
+    return insert("INSERT INTO snowtypes (brand, model, photo)
+                            VALUES(:brand, :model, :photo)",
+        ["brand" => $brand, "model" => $model, "photo" => 'B101.jpg']);
 }
 ?>
